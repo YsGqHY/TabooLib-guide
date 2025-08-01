@@ -15,7 +15,7 @@ sidebar_position: 101
 
 仓库地址：https://github.com/YsGqHY/TrMenu-Documentation
 
-最后同步于：https://github.com/YsGqHY/TrMenu-Documentation/commit/62e3f2cae2749626385b39d4641b60c79a54039d
+最后同步于：https://github.com/YsGqHY/TrMenu-Documentation/pull/12
 
 ## TrChat
 
