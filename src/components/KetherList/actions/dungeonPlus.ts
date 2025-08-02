@@ -12,7 +12,7 @@ const dungeonPlus: KetherActionModule = {
       type: "private",
       categories: ["游戏系统", "脚本控制"],
       syntax: "dungeon \{action\} \{action\} params \{token\} \[area \{token\}\]",
-      example: "\{dungeon\} message self \{params\} \"type=text;text=Example:<self:player-name>\""
+      example: "dungeon message self params \"type=text;text=Example:<self:player-name>\""
     },
     {
       id: "dungeon-data-area",
@@ -22,7 +22,7 @@ const dungeonPlus: KetherActionModule = {
       type: "private",
       categories: ["游戏系统", "实体控制"],
       syntax: "dungeon-data area \[players|size\] \{token\}",
-      example: "\{dungeon-data area\} players dungeon_1"
+      example: "dungeon-data area players dungeon_1"
     },
     {
       id: "dungeon-data-players",
@@ -32,7 +32,7 @@ const dungeonPlus: KetherActionModule = {
       type: "private",
       categories: ["游戏系统", "实体控制"],
       syntax: "dungeon-data players",
-      example: "\{dungeon-data players\}"
+      example: "dungeon-data players"
     },
     {
       id: "dungeon-data-data",
@@ -42,7 +42,7 @@ const dungeonPlus: KetherActionModule = {
       type: "private",
       categories: ["游戏系统", "数据处理"],
       syntax: "dungeon-data data \{token\}",
-      example: "\{dungeon-data data\} data_name"
+      example: "dungeon-data data data_name"
     },
     {
       id: "dungeon-data-mob",
@@ -52,7 +52,7 @@ const dungeonPlus: KetherActionModule = {
       type: "private",
       categories: ["游戏系统", "实体控制"],
       syntax: "dungeon-data mob \[amount|contain\] \{token\}",
-      example: "\{dungeon-data mob\} amount mob_1\n\{dungeon-data mob\} contain mob_2"
+      example: "dungeon-data mob amount mob_1\ndungeon-data mob contain mob_2"
     },
     {
       id: "dungeon-data-world",
@@ -62,7 +62,7 @@ const dungeonPlus: KetherActionModule = {
       type: "private",
       categories: ["游戏系统", "世界与坐标"],
       syntax: "dungeon-data world",
-      example: "\{dungeon-data world\}"
+      example: "dungeon-data world"
     },
     {
       id: "dungeon-data-name",
@@ -72,7 +72,7 @@ const dungeonPlus: KetherActionModule = {
       type: "private",
       categories: ["游戏系统"],
       syntax: "dungeon-data dongeon name",
-      example: "\{dungeon-data dongeon name\}"
+      example: "dungeon-data dongeon name"
     },
     {
       id: "dungeon-data-options",
@@ -82,7 +82,7 @@ const dungeonPlus: KetherActionModule = {
       type: "private",
       categories: ["游戏系统", "数据处理"],
       syntax: "dungeon-data options \{token\}",
-      example: "\{dungeon-data dongeon options\} 1"
+      example: "dungeon-data dongeon options 1"
     },
   ]
 };

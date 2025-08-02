@@ -12,7 +12,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["世界与坐标"],
       syntax: "block (x|y|z) in \{location\}",
-      example: "\{block x\} in location world 0 0 0"
+      example: "block x in location world 0 0 0"
     },
     {
       id: "cancel",
@@ -22,7 +22,7 @@ const chemdah: KetherActionModule = {
       type: "private",
       categories: ["游戏系统"],
       syntax: "cancel",
-      example: "\{cancel\}"
+      example: "cancel"
     },
     {
       id: "ceil",
@@ -32,7 +32,7 @@ const chemdah: KetherActionModule = {
       type: "private",
       categories: ["逻辑与数学"],
       syntax: "ceil \{aciton\}",
-      example: "\{ceil\} 3.1"
+      example: "ceil 3.1"
     },
     {
       id: "close",
@@ -42,7 +42,7 @@ const chemdah: KetherActionModule = {
       type: "private",
       categories: ["游戏系统"],
       syntax: "close",
-      example: "\{close\}"
+      example: "close"
     },
     {
       id: "distance",
@@ -52,7 +52,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["世界与坐标", "逻辑与数学"],
       syntax: "distance \{location\} to \{location\}",
-      example: "\{distance\} location world 0 0 0 \{to\} location world 10 10 10"
+      example: "distance location world 0 0 0 to location world 10 10 10"
     },
     {
       id: "equipment_check",
@@ -62,7 +62,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["物品管理", "实体控制"],
       syntax: "inventory \{equipment\} is \{token\} \[amount \{int\}\]",
-      example: "\{inventory helmet is\} \"minecraft:iron_helmet\"\r\\n\{inventory chestplate is\} \"minecraft:diamond_chestplate\" \{amount\} 1"
+      example: "inventory helmet is \"minecraft:iron_helmet\"\r\\ninventory chestplate is \"minecraft:diamond_chestplate\" amount 1"
     },
     {
       id: "floor",
@@ -72,7 +72,7 @@ const chemdah: KetherActionModule = {
       type: "private",
       categories: ["逻辑与数学"],
       syntax: "floor \{aciton\}",
-      example: "\{floor\} 3.9"
+      example: "floor 3.9"
     },
     {
       id: "goto",
@@ -82,7 +82,7 @@ const chemdah: KetherActionModule = {
       type: "private",
       categories: ["游戏系统"],
       syntax: "goto \{token\}",
-      example: "\{goto\} conversation_0"
+      example: "goto conversation_0"
     },
     {
       id: "inventory_count",
@@ -92,7 +92,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["物品管理", "实体控制"],
       syntax: "inventory (count|amount) \{token\}",
-      example: "\{inventory count\} \"minecraft:stone\""
+      example: "inventory count \"minecraft:stone\""
     },
     {
       id: "inventory_check",
@@ -102,7 +102,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["物品管理", "实体控制"],
       syntax: "inventory check \{token\} \[amount \{int\}\]",
-      example: "\{inventory check\} \"minecraft:stone\"\r\\n\{inventory check\} \"minecraft:diamond\" \{amount\} 1"
+      example: "inventory check \"minecraft:stone\"\r\\ninventory check \"minecraft:diamond\" amount 1"
     },
     {
       id: "inventory_close",
@@ -112,7 +112,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["物品管理", "实体控制"],
       syntax: "inventory close",
-      example: "\{inventory close\}"
+      example: "inventory close"
     },
     {
       id: "inventory_slot_check",
@@ -122,7 +122,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["物品管理", "实体控制"],
       syntax: "inventory slot \{int\} is \{token\} \[amount \{int\}\]",
-      example: "\{inventory slot\} 0 \{is\} \"minecraft:stone\"\r\\n\{inventory slot\} 1 \{is\} \"minecraft:diamond\" \{amount\} 1"
+      example: "inventory slot 0 is \"minecraft:stone\"\r\\ninventory slot 1 is \"minecraft:diamond\" amount 1"
     },
     {
       id: "inventory_take",
@@ -132,7 +132,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["物品管理", "实体控制"],
       syntax: "inventory (remove|take) \{token\} \[amount \{int\}\]",
-      example: "\{inventory take\} \"minecraft:stone\"\r\\n\{inventory take\} \"minecraft:diamond\" \{amount\} 1"
+      example: "inventory take \"minecraft:stone\"\r\\ninventory take \"minecraft:diamond\" amount 1"
     },
     {
       id: "location_x,y,z",
@@ -142,7 +142,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["世界与坐标"],
       syntax: "(x|y|z|yaw|pitch) in \{locaiton\} \[(to|add) \{action\}\]",
-      example: "\{x in\} location world 0 0 0\r\\n\{x in\} location world 0 0 0 \{to\} 10"
+      example: "x in location world 0 0 0\r\\nx in location world 0 0 0 to 10"
     },
     {
       id: "max",
@@ -152,7 +152,7 @@ const chemdah: KetherActionModule = {
       type: "private",
       categories: ["逻辑与数学"],
       syntax: "max \{aciton\} \{action\}",
-      example: "\{max\} 1 10"
+      example: "max 1 10"
     },
     {
       id: "min",
@@ -162,7 +162,7 @@ const chemdah: KetherActionModule = {
       type: "private",
       categories: ["逻辑与数学"],
       syntax: "min \{aciton\} \{action\}",
-      example: "\{max\} 1 10"
+      example: "max 1 10"
     },
     {
       id: "mmocore_attribute_point",
@@ -172,7 +172,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "mmocore attribute point",
-      example: "\{mmocore attribute point\}"
+      example: "mmocore attribute point"
     },
     {
       id: "mmocore_class",
@@ -182,7 +182,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "mmocore class (id|name|point)",
-      example: "\{mmocore class\} id\r\\n\{mmocore class\} name"
+      example: "mmocore class id\r\\nmmocore class name"
     },
     {
       id: "mmocore_level___exp",
@@ -192,7 +192,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "mmocore (level|experience|exp)",
-      example: "\{mmocore level\}\r\\n\{mmocore experience\}"
+      example: "mmocore level\r\\nmmocore experience"
     },
     {
       id: "mmocore_mana",
@@ -202,7 +202,7 @@ const chemdah: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "mmocore mana",
-      example: "\{mmocore mana\}"
+      example: "mmocore mana"
     },
     {
       id: "mmocore_skill_point",

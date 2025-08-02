@@ -12,7 +12,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "arr-clear &array",
-      example: "{arr-clear} &my_list"
+      example: "arr-clear &my_list"
     },
     {
       id: "map-size",
@@ -22,7 +22,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "map-size &map | map-length &map",
-      example: "{map-size} &my_map\n{map-length} &my_map"
+      example: "map-size &my_map\nmap-length &my_map"
     },
     {
       id: "map-mutable",
@@ -32,7 +32,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "map-mutable &map",
-      example: "{map-mutable} &my_map"
+      example: "map-mutable &my_map"
     },
     {
       id: "map-shuffle",
@@ -42,7 +42,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "map-shuffle &map",
-      example: "{map-shuffle} &my_map"
+      example: "map-shuffle &my_map"
     },
     {
       id: "map-reverse",
@@ -52,7 +52,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "map-reverse &map",
-      example: "{map-reverse} &my_map"
+      example: "map-reverse &my_map"
     },
     {
       id: "map",
@@ -62,7 +62,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "map &array",
-      example: "{map} &[key1, value1, key2, value2]"
+      example: "map &[key1, value1, key2, value2]"
     },
     {
       id: "map-get",
@@ -72,7 +72,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "map-get &key in &map",
-      example: "{map-get} \"key1\" in &my_map"
+      example: "map-get \"key1\" in &my_map"
     },
     {
       id: "map-put",
@@ -82,7 +82,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "map-put &key with &value to &map",
-      example: "{map-put} \"new_key\" with \"new_value\" to &my_map"
+      example: "map-put \"new_key\" with \"new_value\" to &my_map"
     },
     {
       id: "map-remove",
@@ -92,7 +92,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "map-remove &key in &map",
-      example: "{map-remove} \"key1\" in &my_map"
+      example: "map-remove \"key1\" in &my_map"
     },
     {
       id: "map-keys",
@@ -102,7 +102,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "map-keys &map",
-      example: "{map-keys} &my_map"
+      example: "map-keys &my_map"
     },
     {
       id: "max",
@@ -112,7 +112,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学", "数学运算"],
       syntax: "max &value1 &value2",
-      example: "{max} 10 20"
+      example: "max 10 20"
     },
     {
       id: "min",
@@ -122,7 +122,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学", "数学运算"],
       syntax: "min &value1 &value2",
-      example: "{min} 10 20"
+      example: "min 10 20"
     },
     {
       id: "ceil",
@@ -132,7 +132,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学", "数学运算"],
       syntax: "ceil &value",
-      example: "{ceil} 3.7"
+      example: "ceil 3.7"
     },
     {
       id: "floor",
@@ -142,7 +142,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学", "数学运算"],
       syntax: "floor &value",
-      example: "{floor} 3.7"
+      example: "floor 3.7"
     },
     {
       id: "a-wait",
@@ -152,7 +152,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["脚本控制", "游戏系统"],
       syntax: "a-wait &seconds | a-delay &seconds | a-sleep &seconds",
-      example: "{a-wait} 5\n{a-delay} 2.5\n{a-sleep} 1"
+      example: "a-wait 5\na-delay 2.5\na-sleep 1"
     },
     {
       id: "instance-of",
@@ -162,7 +162,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学", "数据处理"],
       syntax: "instance-of &object is &class_name",
-      example: "{instance-of} &entity is org.bukkit.entity.Player"
+      example: "instance-of &entity is org.bukkit.entity.Player"
     },
     {
       id: "cast",
@@ -172,7 +172,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学", "数据处理"],
       syntax: "cast &object to &class_name",
-      example: "{cast} &entity to org.bukkit.entity.Player"
+      example: "cast &entity to org.bukkit.entity.Player"
     },
     {
       id: "get-block-drops",
@@ -182,7 +182,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["物品管理", "世界与坐标"],
       syntax: "get-block-drops &block [item &tool] [entity &miner]",
-      example: "{get-block-drops} &block\n{get-block-drops} &block item &diamond_pickaxe\n{get-block-drops} &block item &diamond_pickaxe entity &player"
+      example: "get-block-drops &block\nget-block-drops &block item &diamond_pickaxe\nget-block-drops &block item &diamond_pickaxe entity &player"
     },
     {
       id: "a-cd",
@@ -192,7 +192,7 @@ const aiyatsbus: KetherActionModule = {
       type: "private",
       categories: ["游戏系统", "实体控制"],
       syntax: "a-cd check &enchant &player &seconds &notify [action-bar &action_bar]\na-cd add &enchant &player",
-      example: "{a-cd check} &enchant &player 5 true\n{a-cd check} &enchant &player 5 true action-bar true\n{a-cd add} &enchant &player"
+      example: "a-cd check &enchant &player 5 true\na-cd check &enchant &player 5 true action-bar true\na-cd add &enchant &player"
     },
     {
       id: "spawn-entity",
@@ -202,7 +202,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "世界与坐标"],
       syntax: "spawn-entity &entity_type at &location",
-      example: "{spawn-entity} zombie at &location"
+      example: "spawn-entity zombie at &location"
     },
     {
       id: "real-damage",
@@ -212,7 +212,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "real-damage &entity with &damage [by &attacker]",
-      example: "{real-damage} &player with 10\n{real-damage} &player with 10 by &zombie"
+      example: "real-damage &player with 10\nreal-damage &player with 10 by &zombie"
     },
     {
       id: "entity-name",
@@ -222,7 +222,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "文本处理"],
       syntax: "entity-name &entity",
-      example: "{entity-name} &player"
+      example: "entity-name &player"
     },
     {
       id: "remove-entity",
@@ -232,7 +232,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "remove-entity &entity",
-      example: "{remove-entity} &zombie"
+      example: "remove-entity &zombie"
     },
     {
       id: "add-potion-effect",
@@ -242,7 +242,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "药水效果"],
       syntax: "add-potion-effect &effect_type on &entity duration &duration amplifier &amplifier [ambient &ambient] [particles &particles] [icon &icon]",
-      example: "{add-potion-effect} speed on &player duration 60 amplifier 1"
+      example: "add-potion-effect speed on &player duration 60 amplifier 1"
     },
     {
       id: "near-by-entities",
@@ -252,7 +252,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "世界与坐标"],
       syntax: "near-by-entities &entity in &radius_x &radius_y &radius_z",
-      example: "{near-by-entities} &player in 10 5 10"
+      example: "near-by-entities &player in 10 5 10"
     },
     {
       id: "a-vec-add",
@@ -262,7 +262,7 @@ const aiyatsbus: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "a-vec-add &vector on &entity [safety &safety] [checkKnockback &check]",
-      example: "{a-vec-add} &vector on &player safety true"
+      example: "a-vec-add &vector on &player safety true"
     },
     {
       id: "entity-is-behind",
@@ -272,7 +272,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "逻辑与数学"],
       syntax: "entity-is-behind &entity1 &entity2",
-      example: "{entity-is-behind} &player &zombie"
+      example: "entity-is-behind &player &zombie"
     },
     {
       id: "launch-arrow",
@@ -282,7 +282,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "launch-arrow &source [with &vector]",
-      example: "{launch-arrow} &player\n{launch-arrow} &player with &vector"
+      example: "launch-arrow &player\n{launch-arrow} &player with &vector"
     },
     {
       id: "equip-set-item",
@@ -292,7 +292,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["物品管理", "实体控制"],
       syntax: "equip-set-item &item in &slot to &entity",
-      example: "{equip-set-item} &diamond_sword in hand to &player"
+      example: "equip-set-item &diamond_sword in hand to &player"
     },
     {
       id: "equip-get-item",
@@ -302,7 +302,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["物品管理", "实体控制"],
       syntax: "equip-get-item &slot from &entity",
-      example: "{equip-get-item} hand from &player"
+      example: "equip-get-item hand from &player"
     },
     {
       id: "build-firework",
@@ -312,7 +312,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["视觉特效", "世界与坐标"],
       syntax: "build-firework &location type &type [power &power] [flicker &flicker] [trail &trail] [main-colors &colors] [fade-colors &colors]",
-      example: "{build-firework} world 0 80 0 type BALL_LARGE power 2 flicker true trail true main-colors &[red, blue] fade-colors &[yellow, white]"
+      example: "build-firework world 0 80 0 type BALL_LARGE power 2 flicker true trail true main-colors &[red, blue] fade-colors &[yellow, white]"
     },
     {
       id: "detonate-firework",
@@ -322,7 +322,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["视觉特效"],
       syntax: "detonate-firework &firework",
-      example: "{detonate-firework} &firework"
+      example: "detonate-firework &firework"
     },
     {
       id: "send-lang",
@@ -332,7 +332,7 @@ const aiyatsbus: KetherActionModule = {
       type: "private",
       categories: ["消息显示", "实体控制"],
       syntax: "send-lang &lang_key to &entity [with &args]",
-      example: "{send-lang} enchant-impact-damaged to &event[entity]\n{send-lang} enchant-impact-damaged to &event[entity] with &[entity-name &event[attacker]]"
+      example: "send-lang enchant-impact-damaged to &event[entity]\nsend-lang enchant-impact-damaged to &event[entity] with &[entity-name &event[attacker]]"
     },
     {
       id: "mark",
@@ -342,7 +342,7 @@ const aiyatsbus: KetherActionModule = {
       type: "private",
       categories: ["数据处理"],
       syntax: "mark &key on &object",
-      example: "{mark} my_tag on &entity"
+      example: "mark my_tag on &entity"
     },
     {
       id: "unmark",
@@ -352,7 +352,7 @@ const aiyatsbus: KetherActionModule = {
       type: "private",
       categories: ["数据处理"],
       syntax: "unmark &key on &object",
-      example: "{unmark} my_tag on &entity"
+      example: "unmark my_tag on &entity"
     },
     {
       id: "has-mark",
@@ -362,7 +362,7 @@ const aiyatsbus: KetherActionModule = {
       type: "private",
       categories: ["数据处理"],
       syntax: "has-mark &key on &object | hasMark &key on &object",
-      example: "{has-mark} my_tag on &entity\n{hasMark} my_tag on &entity"
+      example: "has-mark my_tag on &entity\nhasMark my_tag on &entity"
     },
     {
       id: "set-metadata",
@@ -372,7 +372,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理"],
       syntax: "set-metadata &key to &value on &object | setMetadata &key to &value on &object | set-meta &key to &value on &object",
-      example: "{set-metadata} my_key to my_value on &entity"
+      example: "set-metadata my_key to my_value on &entity"
     },
     {
       id: "remove-metadata",
@@ -382,7 +382,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理"],
       syntax: "remove-metadata &key on &object | removeMetadata &key on &object | remove-meta &key on &object",
-      example: "{remove-metadata} my_key on &entity"
+      example: "remove-metadata my_key on &entity"
     },
     {
       id: "has-metadata",
@@ -392,7 +392,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理"],
       syntax: "has-metadata &key on &object | hasMetadata &key on &object | has-meta &key on &object",
-      example: "{has-metadata} my_key on &entity"
+      example: "has-metadata my_key on &entity"
     },
     {
       id: "get-metadata",
@@ -402,7 +402,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理"],
       syntax: "get-metadata &key on &object by &index | getMetadata &key on &object by &index | get-meta &key on &object by &index",
-      example: "{get-metadata} my_key on &entity by 0"
+      example: "get-metadata my_key on &entity by 0"
     },
     {
       id: "give-exp",
@@ -412,7 +412,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "give-exp &amount to &player [mending &mending]",
-      example: "{give-exp} 100 to &player\n{give-exp} 100 to &player mending true"
+      example: "give-exp 100 to &player\ngive-exp 100 to &player mending true"
     },
     {
       id: "a-money",
@@ -422,7 +422,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["经济", "实体控制"],
       syntax: "a-money &player | money &player",
-      example: "{a-money} &player\n{money} &player"
+      example: "a-money &player\nmoney &player"
     },
     {
       id: "take-money",
@@ -432,7 +432,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["经济", "实体控制"],
       syntax: "take-money &player &amount",
-      example: "{take-money} &player 100.0"
+      example: "take-money &player 100.0"
     },
     {
       id: "give-money",
@@ -442,7 +442,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["经济", "实体控制"],
       syntax: "give-money &player &amount",
-      example: "{give-money} &player 100.0"
+      example: "give-money &player 100.0"
     },
     {
       id: "has-money",
@@ -452,7 +452,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["经济", "实体控制"],
       syntax: "has-money &player &amount",
-      example: "{has-money} &player 100.0"
+      example: "has-money &player 100.0"
     },
     {
       id: "get-vein",
@@ -462,7 +462,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["世界与坐标"],
       syntax: "get-vein &block [max &amount]",
-      example: "{get-vein} &block\n{get-vein} &block max 100"
+      example: "get-vein &block\nget-vein &block max 100"
     },
     {
       id: "strike-lightning",
@@ -472,7 +472,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["视觉特效", "世界与坐标"],
       syntax: "strike-lightning &location | lightning &location",
-      example: "{strike-lightning} &location\n{lightning} &location"
+      example: "strike-lightning &location\nlightning &location"
     },
     {
       id: "create-explosion",
@@ -482,7 +482,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["视觉特效", "世界与坐标"],
       syntax: "create-explosion &location &power [by &entity] [fire &fire] [break &break]",
-      example: "{create-explosion} &location 2.0\n{create-explosion} &location 2.0 by &player fire true break false"
+      example: "create-explosion &location 2.0\ncreate-explosion &location 2.0 by &player fire true break false"
     },
     {
       id: "drop-item",
@@ -492,7 +492,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["物品管理", "世界与坐标"],
       syntax: "drop-item &item at &location [naturally &naturally]",
-      example: "{drop-item} &diamond at &location\n{drop-item} &diamond at &location naturally true"
+      example: "drop-item &diamond at &location\ndrop-item &diamond at &location naturally true"
     },
     {
       id: "operation",
@@ -502,7 +502,7 @@ const aiyatsbus: KetherActionModule = {
       type: "private",
       categories: ["脚本控制"],
       syntax: "operation &operation_name [args &args]",
-      example: "{operation} my_operation\n{operation} my_operation args &[param1, param2]"
+      example: "operation my_operation\noperation my_operation args &[param1, param2]"
     },
     {
       id: "modifiable-var",
@@ -512,7 +512,7 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "modifiable-var &enchant $item name",
-      example: "{modifiable-var} &enchant $diamond_sword damage"
+      example: "modifiable-var &enchant $diamond_sword damage"
     },
     {
       id: "modifiable-var-set",
@@ -522,10 +522,9 @@ const aiyatsbus: KetherActionModule = {
       type: "public",
       categories: ["数据处理", "变量操作"],
       syntax: "modifiable-var-set &enchant $item name [to] $value",
-      example: "{modifiable-var-set} &enchant $diamond_sword damage to 10\n{modifiable-var-set} &enchant $diamond_sword damage = 15"
+      example: "modifiable-var-set &enchant $diamond_sword damage to 10\nmodifiable-var-set &enchant $diamond_sword damage = 15"
     }
   ]
 };
 
 export default aiyatsbus;
- 

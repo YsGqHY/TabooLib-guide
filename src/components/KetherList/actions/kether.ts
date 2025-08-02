@@ -12,7 +12,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学"],
       syntax: "all \{action list\}",
-      example: "\{all \[\} player op player sneaking \{\]\}\r\\n\{all \[\} permission userA permission userB permission userC \{\]\}"
+      example: "all [ player op player sneaking ]\r\\nall [ permission userA permission userB permission userC ]"
     },
     {
       id: "any",
@@ -22,7 +22,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学"],
       syntax: "any \{action list\}",
-      example: "\{any \[\} player op player sneaking \{\]\}\r\\n\{any \[\} permission userA permission userB permission userC \{\]\}"
+      example: "any [ player op player sneaking ]\r\\nany [ permission userA permission userB permission userC ]"
     },
     {
       id: "async",
@@ -32,7 +32,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["脚本控制"],
       syntax: "async \{action\}",
-      example: "\{async\} \{\\\{\} sleep 1s print \"Hello\" \{\\\}\} print \"World!\""
+      example: "async \\{\\{ sleep 1s print \"Hello\" \\}\\} print \"World!\""
     },
     {
       id: "await",
@@ -42,7 +42,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["脚本控制"],
       syntax: "await \{action\}",
-      example: "\{await\} print \"Hello World!\""
+      example: "await print \"Hello World!\""
     },
     {
       id: "await_all",
@@ -52,7 +52,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["脚本控制"],
       syntax: "await_all \{action list\}",
-      example: "\{await_all \[\} print \"Hello\" sleep 1s \{\]\} print \"World!\""
+      example: "await_all [ print \"Hello\" sleep 1s ] print \"World!\""
     },
     {
       id: "await_any",
@@ -62,7 +62,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["脚本控制"],
       syntax: "await_any \{action list\}",
-      example: "\{await_any \[\} print \"Hello\" sleep 1s \{\]\} print \"World!\""
+      example: "await_any [ print \"Hello\" sleep 1s ] print \"World!\""
     },
     {
       id: "call",
@@ -72,7 +72,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["函数操作"],
       syntax: "call \{token\}",
-      example: "\{call\} function_0"
+      example: "call function_0"
     },
     {
       id: "exit",
@@ -82,7 +82,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["脚本控制"],
       syntax: "exit (success|pause|cooldown)",
-      example: "\{exit\} success \r\\n\{exit\} pause"
+      example: "exit success \r\\nexit pause"
     },
     {
       id: "goto",
@@ -92,7 +92,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["函数操作"],
       syntax: "goto \{token\}",
-      example: "\{goto\} function_0"
+      example: "goto function_0"
     },
     {
       id: "if_else",
@@ -102,7 +102,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学", "脚本控制"],
       syntax: "If \{action\} then \{action\} \[else \{action\}\]",
-      example: "\{if\} permission \"admin\" \{then\} tell \"success\"\r\\n\{if\} permission \"admin\" \{then\} tell \"success\" \{else\} tell \"denied\""
+      example: "if permission \"admin\" then tell \"success\"\r\\nif permission \"admin\" then tell \"success\" else tell \"denied\""
     },
     {
       id: "literal",
@@ -112,7 +112,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["数据处理"],
       syntax: "literal \{token\} | \{token\}",
-      example: "\{literal\} Hello\r\\n\{\}Hello\r\\n\{\}\" Hello 'World'! \"\r\\n\{\}' Hello \"Kether\"! '"
+      example: "literal Hello\r\\nHello\r\\n\" Hello 'World'! \"\r\\n' Hello \"Kether\"! '"
     },
     {
       id: "not",
@@ -122,7 +122,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学"],
       syntax: "not \{action\}",
-      example: "\{not\} player op\r\\n\{not\} permission userA\r\\n\{not\} \{not\} \{not\} \{not\} \{not\} \{not\} \{not\} \{not\} \{not\} \{not\} \{not\} true"
+      example: "not player op\r\\nnot permission userA\r\\nnot not not not not not not not not not not true"
     },
     {
       id: "repeat",
@@ -132,7 +132,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["脚本控制"],
       syntax: "repeat \{int\} \{action\}",
-      example: "\{repeat\} 10 print \"Hello World!\""
+      example: "repeat 10 print \"Hello World!\""
     },
     {
       id: "sleep",
@@ -142,7 +142,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["脚本控制"],
       syntax: "(sleep|delay|wait) \{duration\}",
-      example: "\{sleep\} 0.1s\r\\n\{sleep\} 1.5s"
+      example: "sleep 0.1s\r\\nsleep 1.5s"
     },
     {
       id: "variable_get",
@@ -152,7 +152,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["数据处理"],
       syntax: "get \{token\} | &\{token\}",
-      example: "\{get\} test\r\\n\{&\}test"
+      example: "get test\r\\n&test"
     },
     {
       id: "variable_set",
@@ -162,7 +162,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["数据处理"],
       syntax: "set \{token\} \{token\} | set \{token\} to \{action\}",
-      example: "\{set\} test yes\r\\n\{set\} test \{to\} yes"
+      example: "set test yes\r\\nset test to yes"
     },
     {
       id: "while",
@@ -172,7 +172,7 @@ const kether: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学", "脚本控制"],
       syntax: "while \{action\} then \{action\}",
-      example: "\{while\} player sneaking \{then\} \{\\\{\} tell sneaking sleep 1s \{\\\}\}"
+      example: "while player sneaking then \\{\\{ tell sneaking sleep 1s \\}\\}"
     },
   ]
 };

@@ -12,7 +12,7 @@ const adyeshach: KetherActionModule = {
       type: "both",
       categories: ["实体控制"],
       syntax: "animation \{token\}",
-      example: "\{animation\} swing_main_hand"
+      example: "animation swing_main_hand"
     },
     {
       id: "controller",
@@ -22,7 +22,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "controller (add|remove|reset) \{token\}",
-      example: "\{controller add\} move\r\\n\{controller clear\}\r\\n\{controller remove\} gravity"
+      example: "controller add move\r\\ncontroller clear\r\\ncontroller remove gravity"
     },
     {
       id: "create",
@@ -32,7 +32,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "create \{token\} \{token\} at \{action\}",
-      example: "\{create\} test villager \{at\} location world 0 0 0"
+      example: "create test villager at location world 0 0 0"
     },
     {
       id: "delete",
@@ -42,7 +42,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "delete",
-      example: "\{delete\}"
+      example: "delete"
     },
     {
       id: "destroy",
@@ -52,7 +52,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "destroy",
-      example: "\{destroy\}"
+      example: "destroy"
     },
     {
       id: "look",
@@ -62,7 +62,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "look \[smooth\] \[x to \{action\}\] \[y to \{action\}\] \[z to \{action\}\]",
-      example: "\{look\} x \{to\} 0\r\\n\{look\} x \{to\} 0 y \{to\} 0 z \{to\} 0\r\\n\{look smooth\} x \{to\} 0"
+      example: "look x to 0\r\\nlook x to 0 y to 0 z to 0\r\\nlook smooth x to 0"
     },
     {
       id: "meta",
@@ -72,7 +72,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["数据处理"],
       syntax: "meta set \{token\} \[to \{token\}\] | meta reset \{token\}",
-      example: "\{meta set\} entityPose \{to\} sleeping\r\\n\{meta reset\} entityPose"
+      example: "meta set entityPose to sleeping\r\\nmeta reset entityPose"
     },
     {
       id: "move",
@@ -82,7 +82,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "move \[relative\] \[x to \{action\}\] \[y to \{action\}\] \[z to \{action\}\]",
-      example: "\{move\} x \{to\} 0\r\\n\{move\} x \{to\} 0 y \{to\} 0 z \{to\} 0\r\\n\{move relative\} x \{to\} 10"
+      example: "move x to 0\r\\nmove x to 0 y to 0 z to 0\r\\nmove relative x to 10"
     },
     {
       id: "passenger",
@@ -92,7 +92,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "passenger (add|remove|reset) \{token\}",
-      example: "\{passenger add\} test\r\\n\{passenger clear\}\r\\n\{passenger remove\} test"
+      example: "passenger add test\r\\npassenger clear\r\\npassenger remove test"
     },
     {
       id: "remove",
@@ -102,7 +102,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "remove",
-      example: "\{remove\}"
+      example: "remove"
     },
     {
       id: "respawn",
@@ -112,7 +112,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "respawn",
-      example: "\{respawn\}"
+      example: "respawn"
     },
     {
       id: "select",
@@ -122,7 +122,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "select \{action\} \[by (id|uuid)\]",
-      example: "\{select\} test\r\\n\{select\} test \{by\} id"
+      example: "select test\r\\nselect test by id"
     },
     {
       id: "sleeping",
@@ -132,7 +132,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "sleeping",
-      example: "\{sleeping\}"
+      example: "sleeping"
     },
     {
       id: "still",
@@ -142,7 +142,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "still",
-      example: "\{still\}"
+      example: "still"
     },
     {
       id: "freeze",
@@ -152,7 +152,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "freeze \{boolean\}",
-      example: "\{freeze\} true\\n\{freeze\} false"
+      example: "freeze true\\nfreeze false"
     },
     {
       id: "tag",
@@ -162,7 +162,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["数据处理"],
       syntax: "tag \[persistent\] (set|remove|reset|has) \{token\} \[to \{token\}\]",
-      example: "\{tag set\} test \{to\} 1\r\\n\{tag remove\} test\r\\n\r\\n\{tag persistent set\} p-test \{to\} 1\r\\n\{tag persistent remove\} p-test"
+      example: "tag set test to 1\r\\ntag remove test\r\\n\r\\ntag persistent set p-test to 1\r\\ntag persistent remove p-test"
     },
     {
       id: "teleport",
@@ -172,7 +172,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "teleport \{location\}",
-      example: "\{teleport\} location world 0 80 0"
+      example: "teleport location world 0 80 0"
     },
     {
       id: "use",
@@ -182,7 +182,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["系统配置"],
       syntax: "use \{token\} \[temp\[orary\]\]",
-      example: "\{use\} public\r\\n\{use\} public \{temp\}\r\\n\{use\} private \{temporary\}"
+      example: "use public\r\\nuse public temp\r\\nuse private temporary"
     },
     {
       id: "viewer",
@@ -192,7 +192,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["视觉特效"],
       syntax: "viewer (add|remove|reset) \{action\}",
-      example: "\{viewer add\} bukkitObj\r\\n\{viewer clear\}\r\\n\{viewer remove\} Arasple"
+      example: "viewer add bukkitObj\r\\nviewer clear\r\\nviewer remove Arasple"
     },
     {
       id: "modelengine_animation_add",
@@ -202,7 +202,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["模型处理", "实体控制"],
       syntax: "modelengine animation add \{token\} \{token\} \{token\} \[async\]",
-      example: "\{modelengine animation add\} demo walk 25 \{async\}"
+      example: "modelengine animation add demo walk 25 async"
     },
     {
       id: "modelengine_animation_remove",
@@ -212,7 +212,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["模型处理", "实体控制"],
       syntax: "modelengine animation remove \{token\} \[ingorelerp \{int\}\]",
-      example: "\{modelengine animation remove\} test\\n\{modelengine animation remove\} test \{ingorelerp\} true"
+      example: "modelengine animation remove test\\nmodelengine animation remove test ingorelerp true"
     },
     {
       id: "germengine_animation_add",
@@ -222,7 +222,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["模型处理", "实体控制"],
       syntax: "germengine animation send \{token\}",
-      example: "\{germengine animation send\} test"
+      example: "germengine animation send test"
     },
     {
       id: "germengine_animation_remove",
@@ -232,7 +232,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["模型处理", "实体控制"],
       syntax: "germengine animation remove \{token\}",
-      example: "\{germengine animation stop\} test"
+      example: "germengine animation stop test"
     },
     {
       id: "position",
@@ -242,7 +242,7 @@ const adyeshach: KetherActionModule = {
       type: "private",
       categories: ["实体控制"],
       syntax: "npc position",
-      example: "\{npc position\}\\nelement 0 in \{npc position\}"
+      example: "npc position\\nelement 0 in npc position"
     },
   ]
 };

@@ -12,7 +12,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player absorption amount \[(add|to) \{action\}\]",
-      example: "\{player\} absorption amount\r\\n\{player\} absorption amount \{to\} 100\r\\n\{player\} absorption amount \{add\} 100"
+      example: "player absorption amount\r\\nplayer absorption amount to 100\r\\nplayer absorption amount add 100"
     },
     {
       id: "action_bar",
@@ -22,7 +22,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["界面交互"],
       syntax: "actionbar \{action\}",
-      example: "\{actionbar\} \"Hello World!\""
+      example: "actionbar \"Hello World!\""
     },
     {
       id: "address",
@@ -32,7 +32,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "网络信息"],
       syntax: "player address",
-      example: "\{player\} address"
+      example: "player address"
     },
     {
       id: "allow_flight",
@@ -42,7 +42,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player allow flight \[to \{action\}\]",
-      example: "\{player\} allow flight\r\\n\{player\} allow flight \{to\} true"
+      example: "player allow flight\r\\nplayer allow flight to true"
     },
     {
       id: "array",
@@ -52,7 +52,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["数据处理"],
       syntax: "array \{action list\}",
-      example: "\{array\} \{\[\} 1 1 2 3 4 \{\]\}"
+      example: "array [ 1 1 2 3 4 ]"
     },
     {
       id: "attack_cooldown",
@@ -62,7 +62,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player attack cooldown",
-      example: "\{player\} dead"
+      example: "{player} dead"
     },
     {
       id: "bed_spawn",
@@ -72,7 +72,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "世界与坐标"],
       syntax: "player bed spawn \[to \{action\}\]",
-      example: "\{player\} bed spawn\r\\n\{player\} bed spawn \{to\} location world 0 0 0"
+      example: "player bed spawn\r\\nplayer bed spawn to location world 0 0 0"
     },
     {
       id: "bed_spawn_x,y,z",
@@ -82,7 +82,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "世界与坐标"],
       syntax: "player bed spawn (x|y|z)",
-      example: "\{player\} bed spawn x\r\\n\{player\} bed spawn y\r\\n\{player\} bed spawn z"
+      example: "player bed spawn x\r\\nplayer bed spawn y\r\\nplayer bed spawn z"
     },
     {
       id: "blocking",
@@ -92,7 +92,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player blocking",
-      example: "\{player\} blocking"
+      example: "player blocking"
     },
     {
       id: "break",
@@ -102,7 +102,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["脚本控制"],
       syntax: "break",
-      example: "while true then \\\{ print 1 \{break\} \\\}"
+      example: "while true then \\\{ print 1 break \\\}"
     },
     {
       id: "case & when",
@@ -112,7 +112,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学", "脚本控制"],
       syntax: "case \{aciton\} \[ \{when block\} ... \]",
-      example: "\{case\} &mat \[\\n&nbsp;&nbsp;&nbsp;&nbsp;\{when\} \"diamond\" -> 1\\n&nbsp;&nbsp;&nbsp;&nbsp;\{when\} \[ \"iron\", \"gold\" \] -> 2\\n&nbsp;&nbsp;&nbsp;&nbsp;\{else\} false\\n\]"
+      example: "case &mat \[\\n&nbsp;&nbsp;&nbsp;&nbsp;when \"diamond\" -> 1\\n&nbsp;&nbsp;&nbsp;&nbsp;when \[ \"iron\", \"gold\" \] -> 2\\n&nbsp;&nbsp;&nbsp;&nbsp;else false\\n\]"
     },
     {
       id: "check",
@@ -122,7 +122,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["逻辑与数学"],
       syntax: "check \{action\} \{symbol\} \{action\}",
-      example: "if \{check\} 1 \{is\} 1 then print yes else print no\r\\nif \{check\} 2 \{gt\} 1 then print yes else print no\r\\nif \{check\} 2 \{lt\} 1 then print yes else print no"
+      example: "if check 1 is 1 then print yes else print no\r\\nif check 2 gt 1 then print yes else print no\r\\nif check 2 lt 1 then print yes else print no"
     },
     {
       id: "color",
@@ -132,7 +132,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["文本处理"],
       syntax: "color\[ed\] \{action\}",
-      example: "\{color\} \"\{&a\} a test message\"\r\\n\{color\} \"\{&\\\{GREEN\\\}\} a test message\"\r\\n\{color\} \"\{&\\\{#7FB80E\\\}\} a test message\"\r\\n\{color\} \"\{&\\\{000,255,000\\\}\} a test message\""
+      example: "color \"&a a test message\"\r\\ncolor \"&GREEN a test message\"\r\\ncolor \"&#7FB80E a test message\"\r\\ncolor \"&000,255,000 a test message\""
     },
     {
       id: "command",
@@ -142,7 +142,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["命令执行"],
       syntax: "command \{action\} \[as (console|player|op)\]",
-      example: "\{command\} \"gamemode survival\"\r\\n\{command\} \"gamemode creative\" \{as\} op"
+      example: "command \"gamemode survival\"\r\\ncommand \"gamemode creative\" as op"
     },
     {
       id: "compass_target",
@@ -152,7 +152,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "物品管理"],
       syntax: "player compass target \[to \{action\}\]",
-      example: "\{player\} compass target\r\\n\{player\} compass target \{to\} location world 0 0 0"
+      example: "player compass target\r\\nplayer compass target to location world 0 0 0"
     },
     {
       id: "compass_x,y,z",
@@ -162,7 +162,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["世界与坐标"],
       syntax: "player compass (x|y|z)",
-      example: "\{player\} compass x\r\\n\{player\} compass y\r\\n\{player\} compass z"
+      example: "player compass x\r\\nplayer compass y\r\\nplayer compass z"
     },
     {
       id: "conversing",
@@ -172,7 +172,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "游戏系统"],
       syntax: "player conversing",
-      example: "\{player\} conversing"
+      example: "player conversing"
     },
     {
       id: "date_day",
@@ -182,7 +182,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["时间与日期"],
       syntax: "day of (year|month|week)",
-      example: "\{day in\} year\r\\n\{day in\} week"
+      example: "day in year\r\\nday in week"
     },
     {
       id: "date_hour",
@@ -192,7 +192,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["时间与日期"],
       syntax: "hour\[s\]",
-      example: "\{hour\}"
+      example: "hour"
     },
     {
       id: "date_minute",
@@ -202,7 +202,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["时间与日期"],
       syntax: "minute\[s\]",
-      example: "\{minute\}"
+      example: "minute"
     },
     {
       id: "date_month",
@@ -212,7 +212,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["时间与日期"],
       syntax: "month\[s\]",
-      example: "print \{month\}"
+      example: "print month"
     },
     {
       id: "date_second",
@@ -222,7 +222,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["时间与日期"],
       syntax: "second\[s\]",
-      example: "\{second\}"
+      example: "second"
     },
     {
       id: "date_year",
@@ -232,7 +232,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["时间与日期"],
       syntax: "year\[s\]",
-      example: "\{year\}"
+      example: "year"
     },
     {
       id: "dead",
@@ -242,7 +242,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player dead",
-      example: "\{player\} dead"
+      example: "player dead"
     },
     {
       id: "element",
@@ -252,7 +252,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["数据处理"],
       syntax: "element \{action\} of \{action\}",
-      example: "\{element\} 0 \{in\} range 1 to 10"
+      example: "element 0 in range 1 to 10"
     },
     {
       id: "exhaustion",
@@ -262,7 +262,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player exhaustion \[(add|to) \{action\}\]",
-      example: "\{player\} exhaustion\r\\n\{player\} exhaustion \{to\} 100\r\\n\{player\} exhaustion \{add\} 100"
+      example: "player exhaustion\r\\nplayer exhaustion to 100\r\\nplayer exhaustion add 100"
     },
     {
       id: "exp",
@@ -272,7 +272,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player exp \[until next level|at level|to level\] \[(add|to) \{action\}\]",
-      example: "\{player\} exp\r\\n\{player\} exp \{add\} 10\r\\n\{player\} exp until next level"
+      example: "player exp\r\\nplayer exp add 10\r\\nplayer exp until next level"
     },
     {
       id: "first_played",
@@ -282,7 +282,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "时间与日期"],
       syntax: "player first played",
-      example: "\{player\} first played"
+      example: "player first played"
     },
     {
       id: "fly___walk_speed",
@@ -292,7 +292,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player (fly|walk) speed \[(add|to) \{action\}\]",
-      example: "\{player\} fly speed\r\\n\{player\} fly speed \{to\} 100\r\\n\{player\} walk speed \{add\} 100"
+      example: "player fly speed\r\\nplayer fly speed to 100\r\\nplayer walk speed add 100"
     },
     {
       id: "flying",
@@ -302,7 +302,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player flying \[to \{action\}\]",
-      example: "\{player\} flying\r\\n\{player\} flying \{to\} true"
+      example: "player flying\r\\nplayer flying to true"
     },
     {
       id: "food_level",
@@ -312,7 +312,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player food level \[(add|to) \{action\}\]",
-      example: "\{player\} food level\r\\n\{player\} food level \{to\} 100\r\\n\{player\} food level \{add\} 100"
+      example: "player food level\r\\nplayer food level to 100\r\\nplayer food level add 100"
     },
     {
       id: "foreach",
@@ -322,7 +322,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["脚本控制", "数据处理"],
       syntax: "for \{token\} in \{action\} then \{action\}",
-      example: "\{for\} i \{in\} range 1 to 10 \{then\} print &i\r\\n\{for\} i \{in\} players \{then\} print &i"
+      example: "for i in range 1 to 10 then print &i\r\\nfor i in players then print &i"
     },
     {
       id: "format_time",
@@ -332,7 +332,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["时间与日期", "文本处理"],
       syntax: "format \{action\} (by|with) \{token\}",
-      example: "\{format\} date \{with\} \"yyyy-MM-dd HH:mm\"\r\\n\{format\} 1628773023000 \{with\} \"yyyy-MM-dd HH:mm\""
+      example: "format date with \"yyyy-MM-dd HH:mm\"\r\\nformat 1628773023000 with \"yyyy-MM-dd HH:mm\""
     },
     {
       id: "gamemode",
@@ -342,7 +342,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player gamemode \[to \{action\}\]",
-      example: "\{player\} gamemode\r\\n\{player\} gamemode \{to\} survival"
+      example: "player gamemode\r\\nplayer gamemode to survival"
     },
     {
       id: "gliding",
@@ -352,7 +352,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player gliding \[to \{action\}\]",
-      example: "\{player\} gliding\r\\n\{player\} gliding \{to\} true"
+      example: "player gliding\r\\nplayer gliding to true"
     },
     {
       id: "glowing",
@@ -362,7 +362,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player glowing \[to \{action\}\]",
-      example: "\{player\} glowing\r\\n\{player\} glowing \{to\} true"
+      example: "player glowing\r\\nplayer glowing to true"
     },
     {
       id: "gravity",
@@ -372,7 +372,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player gravity \[(add|to) \{action\}\]",
-      example: "\{player\} gravity\r\\n\{player\} gravity \{to\} true"
+      example: "player gravity\r\\nplayer gravity to true"
     },
     {
       id: "health",
@@ -382,7 +382,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player \[max \]health \[(add|to) \{action\}\]",
-      example: "\{player\} health\r\\n\{player\} health \{to\} 100\r\\n\{player\} max health \{add\} 100"
+      example: "player health\r\\nplayer health to 100\r\\nplayer max health add 100"
     },
     {
       id: "inline",
@@ -392,7 +392,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["文本处理", "脚本操作"],
       syntax: "inline \{action\} | function \{action\}",
-      example: "\{inline\} \"my name is \{\\\{\\\{\} sender \{\\\}\\\}\}\"\r\\n\{inline\} \"permission \{\\\{\\\{\} permission admin \{\\\}\\\}\}\""
+      example: "inline \"my name is \\{\\{\\{ sender \\}\\}\\}\"\r\\ninline \"permission \\{\\{\\{ permission admin \\}\\}\\}\""
     },
     {
       id: "inside_vehicle",
@@ -402,7 +402,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player inside vehicle",
-      example: "\{player\} inside vehicle"
+      example: "player inside vehicle"
     },
     {
       id: "javascript",
@@ -412,7 +412,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["脚本操作"],
       syntax: "(javascript|js|$) \{token\}",
-      example: "if \{$\} sender.isOp() then print \"success\"\r\\nif \{$\} 'sender.getName() == \"CONSOLE\"' then print \"is console\"\r\\n\r\\n\{javascript\} 'sender.sendMessage(\"Hello World!\")'"
+      example: "if $ sender.isOp() then print \"success\"\r\\nif $ 'sender.getName() == \"CONSOLE\"' then print \"is console\"\r\\n\r\\njavascript 'sender.sendMessage(\"Hello World!\")'"
     },
     {
       id: "join",
@@ -422,7 +422,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["文本处理", "数据处理"],
       syntax: "join \{action list\} \[by \{token\}\]",
-      example: "\{join\} \{\[\} 1 1 2 3 4 \{\]\}\r\\n\{join\} \{\[\} 1 1 2 3 4 \{\]\} \{by\} \"-\""
+      example: "join [ 1 1 2 3 4 ]\r\\njoin [ 1 1 2 3 4 ] by \"-\""
     },
     {
       id: "jumping",
@@ -432,7 +432,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player jumping \[to \{action\}\]",
-      example: "\{player\} jumping\r\\n\{player\} jumping \{to\} true"
+      example: "player jumping\r\\nplayer jumping to true"
     },
     {
       id: "last_played",
@@ -442,7 +442,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "时间与日期"],
       syntax: "player last (played|login)",
-      example: "\{player\} last played\r\\n\{player\} last login"
+      example: "player last played\r\\nplayer last login"
     },
     {
       id: "leashed",
@@ -452,7 +452,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player leashed",
-      example: "\{player\} leashed"
+      example: "player leashed"
     },
     {
       id: "level",
@@ -462,7 +462,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player level \[(add|to) \{action\}\]",
-      example: "\{player\} level\r\\n\{player\} level \{to\} 10\r\\n\{player\} level \{add\} 10"
+      example: "player level\r\\nplayer level to 10\r\\nplayer level add 10"
     },
     {
       id: "locale",
@@ -472,7 +472,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player locale",
-      example: "\{player\} locale"
+      example: "player locale"
     },
     {
       id: "location",
@@ -482,7 +482,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["世界与坐标"],
       syntax: "location \{action\} \{action\} \{action\} \{action\} \[and \{action\} \{action\}\]",
-      example: "\{location\} world 0 0 0\r\\n\{location\} world 0 0 0 \{and\} 0 0"
+      example: "location world 0 0 0\r\\nlocation world 0 0 0 and 0 0"
     },
     {
       id: "location1",
@@ -492,7 +492,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "世界与坐标"],
       syntax: "player location \[to \{location\}\]",
-      example: "\{player location\}\r\\n\{player location\} to location world 0 0 0"
+      example: "player location\r\\nplayer location to location world 0 0 0"
     },
     {
       id: "location_angle",
@@ -502,7 +502,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "世界与坐标"],
       syntax: "player (yaw|pitch) \[(add|to) \{action\}\]",
-      example: "\{player\} yaw\r\\n\{player\} yaw \{to\} 0\r\\n\{player\} pitch \{add\} 10"
+      example: "player yaw\r\\nplayer yaw to 0\r\\nplayer pitch add 10"
     },
     {
       id: "location_x,y,z",
@@ -512,7 +512,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "世界与坐标"],
       syntax: "player \[block \](x|y|z)",
-      example: "\{player\} x\r\\n\{player\} y\r\\n\{player\} block z"
+      example: "player x\r\\nplayer y\r\\nplayer block z"
     },
     {
       id: "map",
@@ -522,7 +522,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["脚本控制", "数据处理"],
       syntax: "map \{token\} in \{action\} with \{action\}",
-      example: "\{map\} i \{in\} range 1 to 10 \{with\} $ \"i  10\"\r\\n\{map\} i \{in\} range 1 to 10 \{with\} math  \[ &i 10 \]"
+      example: "map i in range 1 to 10 with $ \"i  10\"\r\\nmap i in range 1 to 10 with math  \[ &i 10 \]"
     },
     {
       id: "math",
@@ -532,7 +532,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["数学运算"],
       syntax: "math \{symbol\} \{action list\}",
-      example: "\{math add \[\} 1 2 3 \{\]\}\r\\n\{math mul \[\} 1 2 3 \{\]\}"
+      example: "math add [ 1 2 3 ]\r\\nmath mul [ 1 2 3 ]"
     },
     {
       id: "name",
@@ -542,7 +542,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player \[(display|list) \] name",
-      example: "\{player\} name\r\\n\{player\} list name\r\\n\{player\} display name"
+      example: "player name\r\\nplayer list name\r\\nplayer display name"
     },
     {
       id: "no_damage_tick",
@@ -552,7 +552,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player no damage ticks \[(add|to) \{action\}\]",
-      example: "\{player\} no damage ticks\r\\n\{player\} no damage ticks \{to\} 100\r\\n\{player\} no damage ticks \{add\} 100"
+      example: "player no damage ticks\r\\nplayer no damage ticks to 100\r\\nplayer no damage ticks add 100"
     },
     {
       id: "null",
@@ -562,7 +562,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["变量操作"],
       syntax: "null",
-      example: "check &test is \{null\}\r\\ncheck &test not \{null\}"
+      example: "check &test is null\r\\ncheck &test not null"
     },
     {
       id: "on_guard",
@@ -572,7 +572,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player on ground",
-      example: "\{player\} on ground"
+      example: "player on ground"
     },
     {
       id: "op",
@@ -582,7 +582,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player op \[to \{action\}\]",
-      example: "\{player\} op\r\\n\{player\} op \{to\} true"
+      example: "player op\r\\nplayer op to true"
     },
     {
       id: "optional",
@@ -592,7 +592,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["变量操作", "逻辑与数学"],
       syntax: "optional \{action\} else \{action\}",
-      example: "\{optional\} null \{else\} yes"
+      example: "optional null else yes"
     },
     {
       id: "pass",
@@ -602,7 +602,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["变量操作"],
       syntax: "pass",
-      example: "title \"Hello World!\" subtitle \{pass\}"
+      example: "title \"Hello World!\" subtitle pass"
     },
     {
       id: "pause",
@@ -612,7 +612,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["脚本控制"],
       syntax: "pause",
-      example: "\{pause\}"
+      example: "pause"
     },
     {
       id: "permission",
@@ -622,7 +622,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["权限操作"],
       syntax: "perm\[ission\] \{action\}",
-      example: "\{perm\} admin \\n\{permission\} admin"
+      example: "perm admin \\npermission admin"
     },
     {
       id: "placeholderapi",
@@ -632,7 +632,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["变量操作", "文本处理"],
       syntax: "papi \{action\} | placeholder \{action\}",
-      example: "\{papi\} \"%player_name%\"\r\\n\{placeholder\} \"%player_name%\""
+      example: "papi \"%player_name%\"\r\\nplaceholder \"%player_name%\""
     },
     {
       id: "print",
@@ -642,7 +642,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["消息显示"],
       syntax: "print \{action\} | log \{action\}",
-      example: "\{print\} \"Hello World!\""
+      example: "print \"Hello World!\""
     },
     {
       id: "random",
@@ -652,7 +652,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["数学运算", "数据处理"],
       syntax: "random \{double\} \[to \{double\}\] | random \{action\}",
-      example: "\{random\} 10\r\\n\{random\} 1 \{to\} 10\r\\n\{random\} range 1 to 10\r\\n\{random\} array \[ 1 2 3 4 5 \]\r\\n\r\\n\{random\} players"
+      example: "random 10\r\\nrandom 1 to 10\r\\nrandom range 1 to 10\r\\nrandom array \[ 1 2 3 4 5 \]\r\\n\r\\nrandom players"
     },
     {
       id: "random2",
@@ -662,7 +662,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["数学运算", "数据处理"],
       syntax: "random2 \{action\} to \{action\}",
-      example: "\{random2\} 1 \{to\} 10\r\\n\{random2\} 1 \{to\} \{random2\} 10 \{to\} 20\r"
+      example: "random2 1 to 10\r\\nrandom2 1 to random2 10 to 20\r"
     },
     {
       id: "range",
@@ -672,7 +672,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["数学运算", "数据处理"],
       syntax: "range \{number\} to \{number\} \[step \{number\}\]",
-      example: "\{range\} 1 \{to\} 10\r\\n\{range\} 1 \{to\} 10 \{step\} 2\r\\n\{range\} 1 \{to\} 10 \{step\} 2.5"
+      example: "range 1 to 10\r\\nrange 1 to 10 step 2\r\\nrange 1 to 10 step 2.5"
     },
     {
       id: "remaining_air",
@@ -682,7 +682,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player remaining air \[(add|to) \{action\}\]",
-      example: "\{player\} remaining air\r\\n\{player\} remaining air \{to\} 100\r\\n\{player\} remaining air \{add\} 100"
+      example: "player remaining air\r\\nplayer remaining air to 100\r\\nplayer remaining air add 100"
     },
     {
       id: "riptiding",
@@ -692,7 +692,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player riptiding",
-      example: "\{player\} riptiding"
+      example: "player riptiding"
     },
     {
       id: "round",
@@ -702,7 +702,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["数学运算"],
       syntax: "round \{action\}",
-      example: "\{round\} 100.5"
+      example: "round 100.5"
     },
     {
       id: "saturation",
@@ -712,7 +712,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player saturation \[(add|to) \{action\}\]",
-      example: "\{player\} saturation\r\\n\{player\} saturation \{to\} 100\r\\n\{player\} saturation \{add\} 100"
+      example: "player saturation\r\\nplayer saturation to 100\r\\nplayer saturation add 100"
     },
     {
       id: "scale",
@@ -722,7 +722,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["数学运算"],
       syntax: "scale\[d\] \{action\}",
-      example: "\{scale\} 100.5"
+      example: "scale 100.5"
     },
     {
       id: "size",
@@ -732,7 +732,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["数据处理"],
       syntax: "size \{action\}",
-      example: "\{size\} range 1 to 10"
+      example: "size range 1 to 10"
     },
     {
       id: "sleep_ignored",
@@ -742,7 +742,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player sleep ignored \[to \{action\}\]",
-      example: "\{player\} sleep ignored\r\\n\{player\} sleep ignored \{to\} true"
+      example: "player sleep ignored\r\\nplayer sleep ignored to true"
     },
     {
       id: "sleep_ticks",
@@ -752,7 +752,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "时间与日期"],
       syntax: "player sleep ticks",
-      example: "\{player\} sleep ticks"
+      example: "player sleep ticks"
     },
     {
       id: "sleeping",
@@ -762,7 +762,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player sleeping",
-      example: "\{player\} sleeping"
+      example: "player sleeping"
     },
     {
       id: "sneaking",
@@ -772,7 +772,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player sneaking",
-      example: "\{player\} sneaking"
+      example: "player sneaking"
     },
     {
       id: "sound",
@@ -782,7 +782,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["音效操作"],
       syntax: "sound \{token\} \[by \{double\} \{double\}\]",
-      example: "\{sound\} AMBIENT_CAVE\r\\n\{sound\} AMBIENT_CAVE \{by\} 1 1\r\\n\{sound\} resource:custom.sound \{by\} 1 1"
+      example: "sound AMBIENT_CAVE\r\\nsound AMBIENT_CAVE by 1 1\r\\nsound resource:custom.sound by 1 1"
     },
     {
       id: "split",
@@ -792,7 +792,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["文本处理", "数据处理"],
       syntax: "split \{action\} \[with \{token\}\]",
-      example: "\{split\} \"yes\"\r\\n\{split\} \"yes\" with \"e\""
+      example: "split \"yes\"\r\\nsplit \"yes\" with \"e\""
     },
     {
       id: "sprinting",
@@ -802,7 +802,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player sprinting",
-      example: "\{player\} sprinting"
+      example: "player sprinting"
     },
     {
       id: "subtitle",
@@ -812,7 +812,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["消息显示"],
       syntax: "subtitle \{action\} \[by \{int\} \{int\} \{int\}\]",
-      example: "\{subtitle\} \"Hello Kether!\"\r\\n\{subtitle\} \"Hello Kether!\" \{by\} 10 20 10"
+      example: "subtitle \"Hello Kether!\"\r\\nsubtitle \"Hello Kether!\" by 10 20 10"
     },
     {
       id: "swimming",
@@ -822,7 +822,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "player swimming \[(add|to) \{action\}\]",
-      example: "\{player\} swimming\r\\n\{player\} swimming \{to\} true"
+      example: "player swimming\r\\nplayer swimming to true"
     },
     {
       id: "switch",
@@ -832,7 +832,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制"],
       syntax: "switch \{action\}",
-      example: "\{switch\} bukkitObj"
+      example: "switch bukkitObj"
     },
     {
       id: "tell",
@@ -842,7 +842,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["消息显示"],
       syntax: "tell \{action\} | send \{action\} | message \{action\}",
-      example: "\{tell\} \"Hello World!\"\r\\n\{send\} \"Hello World!\""
+      example: "tell \"Hello World!\"\r\\nsend \"Hello World!\""
     },
     {
       id: "time",
@@ -852,7 +852,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["时间与日期"],
       syntax: "time | date",
-      example: "\{time\}\r\\n\{date\}"
+      example: "time\r\\ndate"
     },
     {
       id: "time_format",
@@ -862,7 +862,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["时间与日期", "文本处理"],
       syntax: "time as \{token\} | date as \{token\}",
-      example: "\{time as\} \"yyyy-MM-dd\"\r\\n\{date as\} \"yyyy-MM-dd HH:mm:ss\""
+      example: "time as \"yyyy-MM-dd\"\r\\ndate as \"yyyy-MM-dd HH:mm:ss\""
     },
     {
       id: "title",
@@ -872,7 +872,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["消息显示"],
       syntax: "title \{action\} \[subtitle \{action\}\] \[by \{int\} \{int\} \{int\}\]",
-      example: "\{title\} \"Hello World!\"\r\\n\{title\} \"Hello World!\" \{subtitle\} \"Hello Kether!\"\r\\n\{title\} \"Hello World!\" \{subtitle\} \"Hello Kether!\" \{by\} 10 20 10"
+      example: "title \"Hello World!\"\r\\ntitle \"Hello World!\" subtitle \"Hello Kether!\"\r\\ntitle \"Hello World!\" subtitle \"Hello Kether!\" by 10 20 10"
     },
     {
       id: "toast",
@@ -882,7 +882,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["消息显示"],
       syntax: "toast \{material\} \{action\} \[(by|with) (task|goal|challenge)\]",
-      example: "\{toast\} diamond array \[ \"Hi\" \"Kether\" \]\r\\n\{toast\} diamond array \[ \"Hi\" \"Kether\" \] \{by\} goal\r\\n\{toast\} diamond \"Hi Kether\" \{by\} challenge"
+      example: "toast diamond array \[ \"Hi\" \"Kether\" \]\r\\ntoast diamond array \[ \"Hi\" \"Kether\" \] by goal\r\\ntoast diamond \"Hi Kether\" by challenge"
     },
     {
       id: "type",
@@ -892,7 +892,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["变量操作", "数据处理"],
       syntax: "type \{token\} | type \{type\} \{action\}",
-      example: "\{type\} 100\r\\n\{type\} 100.5\r\\n\{type\} Hello\r\\n\{type\} \" Hello 'World'! \"\r\\n\{type\} ' Hello \"Kether\"! '\r\\n\r\\n\{type int\} 1.0\r\\n\{type double\} 10.9 "
+      example: "type 100\r\\ntype 100.5\r\\ntype Hello\r\\ntype \" Hello 'World'! \"\r\\ntype ' Hello \"Kether\"! '\r\\n\r\\ntype int 1.0\r\\ntype double 10.9 "
     },
     {
       id: "variables",
@@ -902,7 +902,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["变量操作"],
       syntax: "vars | variables",
-      example: "\{vars\}"
+      example: "vars"
     },
     {
       id: "warning",
@@ -912,7 +912,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["消息显示"],
       syntax: "warn\[ing\] \{action\}",
-      example: "\{warning\} \"Hello World!\""
+      example: "warning \"Hello World!\""
     },
     {
       id: "whitelist",
@@ -922,7 +922,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "服务器管理"],
       syntax: "player whitelist \[to \{action\}\]",
-      example: "\{player\} whitelist\r\\n\{player\} whitelist \{to\} true"
+      example: "player whitelist\r\\nplayer whitelist to true"
     },
     {
       id: "world",
@@ -932,7 +932,7 @@ const tabooLib: KetherActionModule = {
       type: "public",
       categories: ["实体控制", "世界与坐标"],
       syntax: "player world",
-      example: "\{player\} world"
+      example: "player world"
     },
     {
       id: "import",
