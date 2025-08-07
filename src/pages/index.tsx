@@ -1,81 +1,56 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect } from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import { IoRocketOutline, IoDocumentTextOutline, IoCodeSlashOutline, IoAppsOutline } from 'react-icons/io5';
+import { IoArrowForward, IoBookOutline, IoTerminalOutline, IoGridOutline } from 'react-icons/io5';
 import LanguageRedirect from '../components/LanguageRedirect';
 
-// @ts-ignore - 忽略类型错误
-// 现代像素风格Banner
 function HomepageHeader() {
-  const [isVisible, setIsVisible] = useState(false);
-  const headerRef = useRef(null);
-
-  useEffect(() => {
-    // 设置可见性延迟，用于初始动画
-    setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
-  }, []);
-
   return (
-    <header ref={headerRef} className={`${styles.heroBanner} ${isVisible ? styles.visible : ''}`}>
-      {/* 背景元素 */}
-      <div className={styles.heroBackground}>
-        <div className={styles.backgroundGradient}></div>
-        <div className={styles.backgroundGrid}></div>
-        <div className={styles.particlesContainer} id="particles-js"></div>
-      </div>
-      
-      {/* 内容区域 */}
-      <div className={styles.bannerContainer}>
-        {/* 标题区域 */}
-        <div className={styles.heroContent}>
-          <div className={styles.pixelTitleWrapper}>
-            <h2 className={styles.pixelTitle}>TabooLib</h2>
+    <div className={styles.hero}>
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <div className={styles.badge}>社区文档</div>
+          <h1 className={styles.title}>TabooLib</h1>
+          <p className={styles.description}>
+            跨平台服务端插件开发框架的社区文档
+          </p>
+          
+          <div className={styles.cta}>
+            <Link className={styles.primaryBtn} to="/intro">
+              开始使用
+              <IoArrowForward />
+            </Link>
           </div>
           
-          <h1 className={styles.mainTitle}>跨平台服务端插件开发框架</h1>
-          
-          <div className={styles.subtitleWrapper}>
-            <p className={styles.subtitle}>
-            这里是 TabooLib 开发框架的非官方用户文档
-              <br />
-              这里集合收录社区中的常用资源
-            </p>
-          </div>
-          
-          {/* 操作按钮区 */}
-          <div className={styles.ctaButtons}>
-            <Link className={styles.primaryCta} to="/intro">
-              <IoRocketOutline className={styles.ctaIcon} />
-              <span>快速开始</span>
+          <div className={styles.quickAccess}>
+            <Link to="https://tabooproject.org/" className={styles.quickItem}>
+              <IoBookOutline />
+              官方文档
             </Link>
-            <Link className={styles.secondaryCta} to="https://tabooproject.org/">
-              <IoDocumentTextOutline className={styles.ctaIcon} />
-              <span>官方文档</span>
+            <Link to="/kether-list" className={styles.quickItem}>
+              <IoTerminalOutline />
+              Kether 语句
             </Link>
-            <Link className={styles.secondaryCta} to="/kether-list">
-              <IoCodeSlashOutline className={styles.ctaIcon} />
-              <span>Kether 语句</span>
-            </Link>
-            <Link className={styles.secondaryCta} to="/plugin-catalog">
-              <IoAppsOutline className={styles.ctaIcon} />
-              <span>插件列表</span>
+            <Link to="/plugin-catalog" className={styles.quickItem}>
+              <IoGridOutline />
+              插件目录
             </Link>
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
 
 export default function Home(): JSX.Element {
-  // 加载粒子效果和移除默认导航
   useEffect(() => {
-    // 添加自定义样式以隐藏导航和页脚
     const style = document.createElement('style');
     style.innerHTML = `
-      nav.navbar, footer.footer, .navbar-sidebar, .theme-doc-sidebar-container, .theme-doc-footer {
+      nav.navbar, 
+      footer.footer, 
+      .navbar-sidebar, 
+      .theme-doc-sidebar-container, 
+      .theme-doc-footer {
         display: none !important;
       }
       body {
@@ -94,50 +69,31 @@ export default function Home(): JSX.Element {
     `;
     document.head.appendChild(style);
     
-    // 移除DOM中的导航元素
-    document.querySelector('nav.navbar')?.remove();
-    document.querySelector('footer.footer')?.remove();
-    
-    // 加载粒子效果
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      // @ts-ignore - particles.js全局对象
-      window.particlesJS && window.particlesJS('particles-js', {
-        particles: {
-          number: { value: 80, density: { enable: true, value_area: 800 } },
-          color: { value: '#3a85ff' },
-          shape: { type: 'circle' },
-          opacity: { value: 0.5, random: true },
-          size: { value: 3, random: true },
-          line_linked: { enable: true, distance: 150, color: '#3a85ff', opacity: 0.2, width: 1 },
-          move: { enable: true, speed: 1, direction: 'none', random: true, straight: false, out_mode: 'out' }
-        },
-        interactivity: {
-          detect_on: 'canvas',
-          events: {
-            onhover: { enable: true, mode: 'grab' },
-            onclick: { enable: true, mode: 'push' },
-            resize: true
-          }
-        },
-        retina_detect: true
-      });
+    const removeElements = () => {
+      document.querySelector('nav.navbar')?.remove();
+      document.querySelector('footer.footer')?.remove();
     };
+    
+    removeElements();
+    
+    const observer = new MutationObserver(removeElements);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
 
     return () => {
-      document.body.removeChild(script);
-      document.head.removeChild(style);
+      observer.disconnect();
+      if (document.head.contains(style)) {
+        document.head.removeChild(style);
+      }
     };
   }, []);
   
   return (
-    <div className={styles.homepageWrapper}>
+    <div className={styles.homepage}>
       <HomepageHeader />
       <LanguageRedirect />
     </div>
   );
-} 
+}
