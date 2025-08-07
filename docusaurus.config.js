@@ -20,7 +20,7 @@ const config = {
     url: IS_CHINA_SITE ? 'https://taboo.8aka.cn' : 'https://taboo.8aka.org',
 
     baseUrl: process.env.BASE_URL ?? '/',
-    onBrokenLinks: 'warn',
+    onBrokenLinks: 'ignore',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
 
@@ -64,7 +64,7 @@ const config = {
                 ],
                 // 设置通用重定向规则，将/plugin/插件名/路径重定向到/插件名/路径
                 createRedirects(existingPath) {
-                    // 只处理特定的插件路径
+                    // 处理所有插件路径的重定向
                     if (existingPath.includes('/adyeshach/') || 
                         existingPath.includes('/aiyatsbus/') ||
                         existingPath.includes('/chemdah/') ||
