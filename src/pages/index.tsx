@@ -44,49 +44,48 @@ function HomepageHeader() {
 
 export default function Home(): JSX.Element {
   useEffect(() => {
-    const style = document.createElement('style');
-    style.innerHTML = `
-      nav.navbar, 
-      footer.footer, 
-      .navbar-sidebar, 
-      .theme-doc-sidebar-container, 
-      .theme-doc-footer {
-        display: none !important;
-      }
-      body {
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow-x: hidden !important;
-      }
-      #__docusaurus {
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-      .main-wrapper {
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-    `;
-    document.head.appendChild(style);
+    // 只在客户端运行，避免SSR问题
+    if (typeof window === 'undefined') return;
     
-    const removeElements = () => {
-      document.querySelector('nav.navbar')?.remove();
-      document.querySelector('footer.footer')?.remove();
-    };
+    // 使用更简单安全的方式 - 只添加CSS样式，不进行DOM移除
+    const styleId = 'homepage-hide-elements';
+    let existingStyle = document.getElementById(styleId);
     
-    removeElements();
+    if (!existingStyle) {
+      const style = document.createElement('style');
+      style.id = styleId;
+      style.innerHTML = `
+        body.homepage-mode nav.navbar, 
+        body.homepage-mode footer.footer, 
+        body.homepage-mode .navbar-sidebar, 
+        body.homepage-mode .theme-doc-sidebar-container, 
+        body.homepage-mode .theme-doc-footer {
+          display: none !important;
+        }
+        body.homepage-mode {
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow-x: hidden !important;
+        }
+        body.homepage-mode #__docusaurus {
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        body.homepage-mode .main-wrapper {
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
     
-    const observer = new MutationObserver(removeElements);
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
+    // 添加body类名
+    document.body.classList.add('homepage-mode');
 
     return () => {
-      observer.disconnect();
-      if (document.head.contains(style)) {
-        document.head.removeChild(style);
-      }
+      // 清理时只移除body类名
+      document.body.classList.remove('homepage-mode');
+      // 不移除style元素，让它保持在页面中，避免DOM错误
     };
   }, []);
   
