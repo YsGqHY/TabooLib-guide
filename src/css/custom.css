@@ -88,10 +88,10 @@ body {
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
-  --border: hsl(217.2 32.6% 17.5%);
+  --border: hsl(240deg 2.5% 20%);
   /* 修复：仅存储 HSL 数值，供 hsl(var(--background) / X) 使用 */
-  --background: 222.2 84% 4.9%;
-  --muted: hsl(217.2 32.6% 17.5%);
+  --background: 240deg 2.5% 15.69%;
+  --muted: hsl(240deg 2.5% 18%);
   --ifm-color-primary: hsl(217.2 91.2% 59.8%);
   --ifm-color-primary-dark: hsl(217.2 91.2% 49.8%);
   --ifm-color-primary-darker: hsl(217.2 91.2% 39.8%);
@@ -110,11 +110,11 @@ body {
   --scrollbar-thumb-active-bg: rgba(255, 255, 255, 0.32);
 
   /* 暗色模式表格变量 */
-  --border-color-light: hsl(240deg 2.5% 20%);
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --border-color-light: hsl(240deg 2.5% 22%);
+  --shadow-sm: 0 2px 4px 0 rgb(0 0 0 / 0.4);
   --table-header-bg: hsl(240deg 2.5% 18%);
-  --table-stripe-bg: hsl(240deg 2.5% 12%);
-  --table-hover-bg: hsl(240deg 2.5% 22%);
+  --table-stripe-bg: hsl(240deg 2.5% 13%);
+  --table-hover-bg: hsl(240deg 2.5% 20%);
 }
 
 /* 全局滚动条样式 */
@@ -583,7 +583,11 @@ h1 {
 
 /* 搜索框暗色模式 */
 [data-theme="dark"] .navbar__search-input {
-  background-color: hsl(var(--background) / 0.6);
+  background-color: hsl(240deg 3.63% 24.46%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cpath d='m21 21-4.35-4.35'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0.75rem center;
+  background-size: 1rem 1rem;
   border-color: hsl(var(--border) / 0.3);
   color: var(--ifm-font-color-base);
 }
