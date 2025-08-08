@@ -64,12 +64,26 @@ body {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
   /* 滚动条变量 */
-  --scrollbar-width: 8px;
-  --scrollbar-track-bg: rgba(0, 0, 0, 0.03);
-  --scrollbar-thumb-bg: rgba(0, 0, 0, 0.15);
-  --scrollbar-thumb-hover-bg: rgba(0, 0, 0, 0.25);
-  --scrollbar-thumb-active-bg: rgba(0, 0, 0, 0.35);
-  --scrollbar-border-radius: 4px;
+  --scrollbar-width: 6px;
+  --scrollbar-track-bg: transparent;
+  --scrollbar-thumb-bg: rgba(0, 0, 0, 0.1);
+  --scrollbar-thumb-hover-bg: rgba(0, 0, 0, 0.2);
+  --scrollbar-thumb-active-bg: rgba(0, 0, 0, 0.3);
+  --scrollbar-border-radius: 3px;
+
+  /* 表格样式变量 */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 0.75rem;
+  --space-lg: 1rem;
+  --space-xl: 1.5rem;
+  --border-color: var(--border);
+  --border-color-light: hsl(240deg 2.5% 90%);
+  --radius-lg: 8px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --table-header-bg: var(--muted);
+  --table-stripe-bg: hsl(240deg 2.5% 97%);
+  --table-hover-bg: hsl(240deg 2.5% 94%);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -90,10 +104,17 @@ body {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   /* 暗色模式滚动条变量 */
-  --scrollbar-track-bg: rgba(255, 255, 255, 0.03);
-  --scrollbar-thumb-bg: rgba(255, 255, 255, 0.15);
-  --scrollbar-thumb-hover-bg: rgba(255, 255, 255, 0.25);
-  --scrollbar-thumb-active-bg: rgba(255, 255, 255, 0.35);
+  --scrollbar-track-bg: transparent;
+  --scrollbar-thumb-bg: rgba(255, 255, 255, 0.12);
+  --scrollbar-thumb-hover-bg: rgba(255, 255, 255, 0.22);
+  --scrollbar-thumb-active-bg: rgba(255, 255, 255, 0.32);
+
+  /* 暗色模式表格变量 */
+  --border-color-light: hsl(240deg 2.5% 20%);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --table-header-bg: hsl(240deg 2.5% 18%);
+  --table-stripe-bg: hsl(240deg 2.5% 12%);
+  --table-hover-bg: hsl(240deg 2.5% 22%);
 }
 
 /* 全局滚动条样式 */
@@ -140,7 +161,9 @@ body {
 *::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb-bg);
   border-radius: var(--scrollbar-border-radius);
-  transition: background-color 0.2s ease;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.2s ease;
 }
 
 *::-webkit-scrollbar-thumb:hover {
@@ -151,23 +174,41 @@ body {
   background-color: var(--scrollbar-thumb-active-bg);
 }
 
+/* 去掉上下箭头按钮 */
+*::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* 去掉角落和边框 */
 *::-webkit-scrollbar-corner {
   background-color: transparent;
 }
 
 /* 针对Kether Explorer组件的滚动条优化 */
 .ketherContainer *::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
+}
+
+.ketherContainer *::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 2px;
 }
 
 .ketherContainer *::-webkit-scrollbar-thumb {
   background-color: var(--kether-border);
-  border-radius: 3px;
+  border-radius: 2px;
+  border: none;
+  transition: all 0.2s ease;
 }
 
 .ketherContainer *::-webkit-scrollbar-thumb:hover {
   background-color: var(--kether-primary);
+}
+
+/* 同样去掉Kether组件的上下箭头 */
+.ketherContainer *::-webkit-scrollbar-button {
+  display: none;
 }
 
 .theme-doc-sidebar-menu {
@@ -430,6 +471,7 @@ h1 {
 /* ===== 导航栏样式优化（增强悬停/激活态、可读性与可点击区域）===== */
 
 .navbar {
+  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
@@ -517,7 +559,7 @@ h1 {
 
 /* 暗色模式优化 */
 [data-theme="dark"] .navbar {
-  background-color: hsl(var(--background) / 0.8);
+  background-color: hsl(240deg 2.5% 15.69%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid hsl(var(--border) / 0.3);
@@ -549,4 +591,150 @@ h1 {
 [data-theme="dark"] .navbar__search-input:focus {
   border-color: var(--ifm-color-primary);
   box-shadow: 0 0 0 2px hsl(var(--ifm-color-primary) / 0.2);
+}
+
+/* ========================================
+   表格样式系统
+   ======================================== */
+
+/* 基础表格样式 */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  font-size: 0.875rem;
+  background-color: transparent;
+  box-shadow: none;
+  table-layout: fixed;
+  display: table;
+}
+
+/* Markdown 表格样式 */
+.markdown table {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+/* 为没有容器的表格添加容器样式 */
+.markdown > table:not([class*="table"]) {
+  margin: var(--space-xl) 0;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--ifm-background-color);
+  overflow: hidden;
+}
+
+/* 表头样式 */
+th {
+  padding: var(--space-md) var(--space-lg);
+  text-align: left;
+  font-weight: 600;
+  background-color: var(--table-header-bg);
+  color: var(--ifm-heading-color);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.875rem;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+/* 第一列和最后一列的特殊间距 */
+th:first-child,
+td:first-child {
+  padding-left: var(--space-lg);
+}
+
+th:last-child,
+td:last-child {
+  padding-right: var(--space-lg);
+}
+
+/* 表格单元格样式 */
+td {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-color-light);
+  vertical-align: top;
+  color: var(--ifm-font-color-base);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+/* 表格行样式 */
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* 斑马纹效果 */
+tr:nth-child(even) {
+  background-color: var(--table-stripe-bg);
+}
+
+/* 悬停效果 */
+tr:hover {
+  background-color: var(--table-hover-bg);
+}
+
+/* ========================================
+   响应式设计 - 平板设备
+   ======================================== */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.75rem;
+  }
+
+  th,
+  td {
+    padding: var(--space-sm);
+  }
+}
+
+/* ========================================
+   响应式设计 - 移动设备
+   ======================================== */
+@media (max-width: 576px) {
+  /* 表格容器在小屏幕上的处理 */
+  .table-wrapper,
+  div[class*="table"],
+  .markdown > table:not([class*="table"]) {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: var(--space-xs) var(--space-sm);
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* 移动端第一列和最后一列贴边 */
+  th:first-child,
+  td:first-child {
+    padding-left: var(--space-sm);
+  }
+
+  th:last-child,
+  td:last-child {
+    padding-right: var(--space-sm);
+  }
 }

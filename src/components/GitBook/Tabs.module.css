@@ -14,16 +14,34 @@
   margin-bottom: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE/Edge */
   scroll-behavior: smooth;
+  /* 使用全局滚动条样式，但更细更轻量 */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-bg) transparent;
 }
 
 .tabList::-webkit-scrollbar {
+  height: 2px;
+}
+
+.tabList::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 1px;
+}
+
+.tabList::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-bg);
+  border-radius: 1px;
+  transition: all 0.2s ease;
+}
+
+.tabList::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover-bg);
+}
+
+/* 去掉左右箭头按钮 */
+.tabList::-webkit-scrollbar-button {
   display: none;
-  /* Chrome/Safari */
 }
 
 .tabList.overflowing {
@@ -155,6 +173,33 @@
   animation: dropdownSlide 0.2s ease-out;
   max-height: 200px;
   overflow-y: auto;
+  /* 使用全局滚动条样式 */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg);
+}
+
+.dropdownMenu::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+.dropdownMenu::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-bg);
+  border-radius: var(--scrollbar-border-radius);
+}
+
+.dropdownMenu::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-bg);
+  border-radius: var(--scrollbar-border-radius);
+  transition: all 0.2s ease;
+}
+
+.dropdownMenu::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover-bg);
+}
+
+/* 去掉上下箭头按钮 */
+.dropdownMenu::-webkit-scrollbar-button {
+  display: none;
 }
 
 .dropdownItem {
