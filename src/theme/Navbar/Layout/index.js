@@ -8,6 +8,7 @@ import {
 import {translate} from '@docusaurus/Translate';
 import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar';
 import styles from './styles.module.css';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 function NavbarBackdrop(props) {
   return (
     <div
@@ -21,8 +22,13 @@ export default function NavbarLayout({children}) {
   const {
     navbar: {hideOnScroll, style},
   } = useThemeConfig();
-  const mobileSidebar = useNavbarMobileSidebar();
-  const {navbarRef, isNavbarVisible} = useHideableNavbar(hideOnScroll);
+  
+  const mobileSidebar = ExecutionEnvironment.canUseDOM 
+    ? useNavbarMobileSidebar() 
+    : { shown: false, toggle: () => {} };
+  const {navbarRef, isNavbarVisible} = ExecutionEnvironment.canUseDOM 
+    ? useHideableNavbar(hideOnScroll)
+    : { navbarRef: null, isNavbarVisible: true };
   return (
     <nav
       ref={navbarRef}
@@ -46,7 +52,7 @@ export default function NavbarLayout({children}) {
       )}>
       {children}
       <NavbarBackdrop onClick={mobileSidebar.toggle} />
-      <NavbarMobileSidebar />
+      {ExecutionEnvironment.canUseDOM && <NavbarMobileSidebar />}
     </nav>
   );
 }
