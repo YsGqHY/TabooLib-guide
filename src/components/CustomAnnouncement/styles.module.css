@@ -1,0 +1,62 @@
+/* 自定义公告栏样式，完全匹配Docusaurus公告栏 */
+.announcementBar {
+  background-color: hsl(221.2 83.2% 53.3%); /* 使用网站主色调 */
+  color: #ffffff; /* 白色文字 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 4px 16px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.announcementContent {
+  text-align: center;
+  max-width: 1140px;
+  margin: 0 auto;
+  word-wrap: break-word;
+}
+
+/* 群号高亮样式 */
+.announcementContent :global(strong) {
+  color: #ffffff;
+  background: hsl(221.2 83.2% 43.3%);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* 暗色模式适配 */
+[data-theme='dark'] .announcementBar {
+  background-color: hsl(217.2 91.2% 59.8%); /* 暗色模式下的主色调 */
+}
+
+[data-theme='dark'] .announcementContent :global(strong) {
+  background: hsl(217.2 91.2% 49.8%);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .announcementBar {
+    font-size: 14px;
+    padding: 4px 12px;
+    min-height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .announcementBar {
+    font-size: 13px;
+    padding: 4px 10px;
+    min-height: 28px;
+  }
+  
+  .announcementContent {
+    line-height: 1.5;
+  }
+}
