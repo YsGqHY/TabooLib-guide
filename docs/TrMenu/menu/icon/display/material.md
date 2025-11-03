@@ -1,6 +1,5 @@
 ---
-title: 材质
-sidebar_position: 1
+title: material
 ---
 
 # 材质
@@ -47,9 +46,9 @@ material: 'mod:原版模组命名域,可通过give查看'
 
 ### 支持的混合端
 
-| 服务端                | 支持状态  |
-|:----------------------|:---------|
-| CatSever              | 未知     |
+| 服务端                   | 支持状态   |
+|:----------------------|:-----|
+| CatSever              | 未知   |
 | Arclight(1.20.1Forge) | 通过测试 |
 | Mohist(1.20.1Forge)   | 通过测试 |
 
@@ -78,7 +77,7 @@ material: 'head:44f452d998eabac4642c6b0fe5a8f4e2e673edcae2a6dfd9e6a2e86e786edac0
 ## 物品源
 
 * TrMenu 对挂钩插件物品支持的实现
-* 统一格式为 `source:ID:INPUT`
+* 统一格式为 `source:<ID>:<INPUT>`
 
 ### HeadDatabase
 
@@ -143,6 +142,13 @@ material: 'source:MAGICGEM:itemId'
 material: 'source:MG:itemId'
 ```
 
+### AzureFlow
+
+```yaml
+material: 'source:AZUREFLOW:itemId'
+material: 'source:AF:itemId'
+```
+
 ### HMCCosmetics
 
 ```yaml
@@ -173,33 +179,6 @@ material: 'source:MYTHICMOBS:itemId'
 material: 'source:MM:itemId'
 ```
 
-### AzureFlow
-
-```yaml
-material: 'source:AZUREFLOW:itemId'
-material: 'source:AF:itemId'
-```
-
-### Nexo
-
-```yaml
-material: 'source:NEXO:itemId'
-```
-
-### CraftEngine
-
-```yaml
-material: 'source:CRAFTENGINE:itemId'
-material: 'source:CE:itemId'
-```
-
-### PxRpg
-
-```yaml
-material: 'source:PXRPG:itemId'
-material: 'source:PX:itemId'
-```
-
 ### 自定义物品源(JS物品源)
 
 **该功能非常强大,可以在无需菜单插件支持的情况下，获取自定义物品**
@@ -226,7 +205,7 @@ material: 'source:JS:headapi.getHeadByExactName(你的头颅名称).getItem(play
 material: 'source:JS:Packages.tsp.headdb.core.api.HeadAPI.getHeadByExactName(你的头颅名称).getItem(player)
 ```
 
-（其实这里还要进行空值判断，但我懒得写了）
+(其实这里还要进行空值判断，但我懒得写了）
 
 ## \* 材质参数
 

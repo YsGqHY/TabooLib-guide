@@ -1,13 +1,8 @@
 ---
-title: 绑定
-sidebar_position: 4
+description: 绑定菜单到快捷命令打开 & 物品特征
 ---
 
-import { PageRef } from '@site/src/components/GitBook';
-
 # 绑定
-
-绑定菜单到快捷命令打开 & 物品特征
 
 ## 示例
 
@@ -30,5 +25,7 @@ Bindings:
 * 绑定命令支持**空格 & 其它参数**，插件将自动匹配并读取玩家提供的真实参数
 * 了解绑定 **物品特征** 的详细写法，请查看下面章节
 
-<PageRef to="../../usage/item-matchers.md" />
+```component PageLink
+path: ../../usage/item-matchers.md
+```
 

@@ -1,13 +1,10 @@
 ---
-title: Adyeshach
-sidebar_position: 6
+sidebar_position: 1
 ---
 
 # 前言
 
 欢迎来到 Adyeshach Docs！
-
-> 本文来自：https://plugins.ptms.ink/category/adyeshach
 
 ![](/img/adyeshach.png)
 

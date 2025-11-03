@@ -1,8 +1,3 @@
----
-title: JSON组件
-sidebar_position: 3
----
-
 # JSON 组件
 
 ## 组成块
@@ -11,7 +6,7 @@ sidebar_position: 3
 
 以下为每个**JSON组件**的构成
 
-:::tip
+::: tip
 文本均支持[Kether内联语句](https://www.yuque.com/sacredcraft/kether/action-inline)
 :::
 

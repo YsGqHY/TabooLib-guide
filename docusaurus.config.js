@@ -1,6 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const path = require('path');
 const { themes } = require('prism-react-renderer');
 
 const IS_CHINA_SITE = process.env.CHINA === 'true';
@@ -47,6 +48,11 @@ const config = {
 
     plugins: [
         'docusaurus-plugin-image-zoom',
+        // Git 文档同步插件
+        [
+            path.resolve(__dirname, 'plugins/docusaurus-plugin-git-docs-sync'),
+            require('./docs-sync.config.js'),
+        ],
         [
             '@docusaurus/plugin-client-redirects',
             {

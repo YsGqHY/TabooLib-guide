@@ -1,13 +1,8 @@
 ---
-title: 描述
-sidebar_position: 3
+description: 物品的 Lore 描述
 ---
 
-import { Admonition } from '@site/src/components/GitBook';
-
 # 描述
-
-物品的 Lore 描述
 
 ## 示例
 
@@ -25,9 +20,9 @@ lore:
 
 ## 条件
 
-<Admonition type="info">
-此功能将在每次更新 Lore 时进行计算条件，可能影响插件性能表现
-</Admonition>
+::: info 此功能将在每次更新 Lore 时进行计算条件，可能影响插件性能表现
+:::
+
 
 ```yaml
 lore:

@@ -1,8 +1,3 @@
----
-title: 跨服
-sidebar_position: 4
----
-
 # 跨服功能
 
 ## 频道配置
@@ -12,7 +7,7 @@ Options:
     Proxy: true
 ```
 
-:::tip
+::: tip
 默认配置中除Normal均支持跨服
 :::
 
@@ -24,7 +19,7 @@ Options:
 * 跨服端上的频道文件, 所有子服都可使用
 * `/muteallservers on/off` 可控制所有子服的全体禁言
 
-:::warning
+::: warning
 必须确保子服与群组端安装了**同一版本**的TrChat
 :::
 

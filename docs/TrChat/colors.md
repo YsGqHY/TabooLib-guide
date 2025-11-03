@@ -1,8 +1,3 @@
----
-title: 颜色
-sidebar_position: 7
----
-
 # 颜色
 
 ## 普通颜色/修饰
@@ -12,7 +7,7 @@ sidebar_position: 7
 * & + 格式化代码
 * § + 格式化代码
 
-:::tip 更多内容
+::: tip 更多内容
 https://minecraft.fandom.com/zh/wiki/%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81
 :::
 
@@ -27,7 +22,7 @@ https://minecraft.fandom.com/zh/wiki/%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%
 
 ## HEX颜色
 
-:::info
+::: info
 以下颜色要求版本1.16+
 :::
 

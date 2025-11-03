@@ -1,6 +1,5 @@
 ---
-title: 属性
-sidebar_position: 4
+title: property
 ---
 
 # 属性
@@ -23,7 +22,7 @@ amount: '${js: varInt("%server_time_s%") + 1}'
 shiny: true
 
 # 动态效果（条件表达式）
-shiny: 'all [ perm *vip.user money *100 ]'
+shiny: 'all [perm *vip.user money *100]'
 ```
 
 ## 标签
@@ -62,11 +61,4 @@ item_model: fish
 
 ```yaml
 tooltip: blue
-```
-
-## Hide Tooltip
-
-```yaml
-hide_tooltip: true
-hide_tool: 'all [ perm *vip.user money *100 ]'
 ```

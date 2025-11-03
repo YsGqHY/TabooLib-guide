@@ -1,20 +1,16 @@
 ---
-title: 安装
-sidebar_position: 3
+title: 安装 
 ---
 
-import { Admonition } from '@site/src/components/GitBook';
-
-# 安装
 从正规渠道获取到本插件的 JAR 文件后，安装到服务器
 
 ## 需求
 
-<Admonition type="info">
-TrMenu 需要在联网条件下载安装
-</Admonition>
+::: info TrMenu 需要在联网条件下载安装
+:::
 
-| 服务端                    | 版本       |
+
+| 服务端                      | 版本         |
 |:-------------------------|:-----------|
 | Spigot                   | 1.8-1.20.4 |
 | Paper                    | 1.8-1.20.4 |
@@ -41,8 +37,9 @@ TrMenu 需要在联网条件下载安装
 
 ## 注意
 
-<Admonition type="warning">
+::: warning 
 TrMenu **不支持**一切形式的**热重载**，
+
 
 强行进行热重载操作可能引发未知错误，请谨慎操作
 
@@ -50,5 +47,4 @@ TrMenu **不支持**一切形式的**热重载**，
 
 * 通过 Plugman\(或类似插件\) 热重载 TrMenu
 * 通过 /reload \(confirm\) 指令重启服务端
-</Admonition>
-
+:::

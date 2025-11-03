@@ -1,8 +1,3 @@
----
-title: TrChat
-sidebar_position: 9
----
-
 # 介绍
 
 ## 简介

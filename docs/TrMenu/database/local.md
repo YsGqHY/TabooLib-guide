@@ -1,11 +1,8 @@
 ---
-title: LOCAL
-sidebar_position: 1
+description: 本地数据库
 ---
 
 # LOCAL
-
-本地数据库
 
 ## 配置
 

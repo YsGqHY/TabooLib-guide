@@ -1,9 +1,6 @@
 ---
-title: PAPI 变量
-sidebar_position: 1
+title: placeholders
 ---
-
-import { Admonition } from '@site/src/components/GitBook';
 
 # PAPI 变量
 
@@ -13,13 +10,13 @@ import { Admonition } from '@site/src/components/GitBook';
 
 ## 传递参数
 
-> %trmenu\_args\_````<Index>````%
+> %trmenu\_args\_&lt;Index&gt;%
 
 ## Metadata 数据
 
-> %trmenu\_meta\_``<key>``%
+> %trmenu\_meta\_&lt;key&gt;%
 >
-> %trmenu\_data\_``<key>``%
+> %trmenu\_data\_&lt;key&gt;%
 
 ## Menu 菜单数据
 
@@ -35,21 +32,20 @@ import { Admonition } from '@site/src/components/GitBook';
 
 ## JavaScript 运算
 
-> %trmenu\_js\_``<Context>``%
+> %trmenu\_js\_&lt;Context&gt;%
 
-<Admonition type="danger">
+::: danger
 **警告**: 该变量可能会被恶意利用, 请在确保玩家无法主动访问 PlaceholderAPI 变量的情况使用.
 
 若要启用该功能, 请前往 **settings.yml** 将节点 **Options.Placeholders.JavaScript-Parse** 启用
-</Admonition>
+:::
 
 ## Jexl 运算
 
-> %trmenu\_jexl\_``<Context>``%
+> %trmenu\_jexl\_&lt;Context&gt;%
 
-<Admonition type="danger">
+::: danger
 **警告**: 该变量可能会被恶意利用, 请在确保玩家无法主动访问 PlaceholderAPI 变量的情况使用.
 
 若要启用该功能, 请前往 **settings.yml** 将节点 **Options.Placeholders.Jexl-Parse** 启用
-</Admonition>
-
+:::

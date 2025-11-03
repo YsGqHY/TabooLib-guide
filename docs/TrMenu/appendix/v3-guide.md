@@ -1,9 +1,6 @@
 ---
 title: 升级向导
-sidebar_position: 8
 ---
-
-# 升级向导
 本文章皆在带你快速了解 TrMenu 3.0 以及升级步骤
 
 ## 更新内容
@@ -34,7 +31,7 @@ source:ORAXEN:itemId
 {json Content}
 ```
 
-* 特殊物品不再需要大括号或尖括号等特殊符号
+* 特殊物品不再需要 \{ \} 、&lt;&gt; 等
 * HeadDatabase / Oraxen / **ItemsAdder**\(新\) ****等物品挂钩需要以 ItemSource 格式
 * SkinsRestorer 的挂钩和自定义材质头颅一律集合到玩家头颅中，将自动检测处理
 
@@ -42,7 +39,7 @@ source:ORAXEN:itemId
 
 条件检测是本次更新最大的改动部分
 
-现在条件弃用了 TrMenu 2 所提供的 "智能表达式"，仅支持 **Kether** 和 **JavaScript** 两种语句. 且默认使用 Kether 语句
+现在条件弃用了 TrMenu 2 所提供的 “智能表达式”，仅支持 **Kether** 和 **JavaScript** 两种语句. 且默认使用 Kether 语句
 
 * **Kether**
   * Kether 官方文档会提供使用说明
@@ -73,7 +70,9 @@ source:ORAXEN:itemId
 
 #### 函数
 
-[函数说明](usage/functions.md)
+```component PageLink
+path: ../usage/functions.md
+```
 
 #### 动作
 
@@ -82,7 +81,7 @@ source:ORAXEN:itemId
   * `title: [标题] [副标题] [渐入时间] [停留] [渐出时间]`
   * 包含空格的标题文本应用 · 括起
 * **Refresh** 动作现在可以指定图标槽位来刷新单个图标
-* **ActionOption** 动作参数现在推荐使用 ``{[TYPE]=[VALUE]}`` 的格式定义
+* **ActionOption** 动作参数现在推荐使用 `{[TYPE]=[VALUE]}` 的格式定义
 * **InputCatcher** 捕获器现在规范的参数包括 `type`, `start`, `cancel`, `end`. 特殊参数有 `display`, `itemLeft`, `itemRight`, `content` & 新增 BOOK 类型的捕获器
 
 #### 数据
@@ -98,7 +97,9 @@ source:ORAXEN:itemId
 * 菜单列表格式化
 * 调试功能重写 Mirror & Dump 功能集成到 Debug 下
 
-[命令说明](usage/command.md)
+```component PageLink
+path: ../usage/command.md
+```
 
 #### API
 
@@ -184,7 +185,7 @@ java.lang.AbstractMethodError: org.sqlite.Conn.isValid(I)Z
 
 如果你只使用了一些简单的条件或 JavaScript 形式的，相对来说升级要容易些
 
-例如应用替换功能 `hasPerm.`  -> `perm *`
+例如应用替换功能 `hasPerm.`  -&gt; `perm *`
 
 #### 有必要升级吗
 

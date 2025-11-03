@@ -1,8 +1,3 @@
----
-title: 更新日志
-sidebar_position: 12
----
-
 # 更新日志
 
 ## VERSION 2.0
@@ -283,7 +278,7 @@ sidebar_position: 12
         ![](https://i.loli.net/2019/11/30/2WVEyrz4jYZwgmI.png)
         ![](https://i.loli.net/2019/11/30/lWYbH7ztPJVfSje.png)
         ![](https://i.loli.net/2019/11/30/onepTGQrh8yNamz.png)
-
+        
 ## VERSION 1.5
   - #### 1.51
     - 修复了部分情况下 PlaceholderAPI 的报错
@@ -294,7 +289,7 @@ sidebar_position: 12
 
 ## Old logs
 	Version 1.5:
-		Date: 2019.10.19
+		Date: 2019.10.19    
 		Updates:
 		 - 改进部分代码
 		 - 修复 "functions" 命名错误
@@ -329,7 +324,7 @@ sidebar_position: 12
   		 - 聊天内容的发包将改为 CHAT 类型
   		 - 依赖更至 Taboolib v5.04
   		 1.34:
-  		 - 修复 \<\> 中内容消失的问题
+  		 - 修复 `<>` 中内容消失的问题
   		 - 禁止在私聊中At玩家
   		 - 新增At玩家的冷却 (常规/单个玩家冷却)
   		 - 缓存展示物品，提高性能

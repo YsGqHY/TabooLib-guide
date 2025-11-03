@@ -1,9 +1,6 @@
 ---
-title: 函数变量
-sidebar_position: 4
+title: functions
 ---
-
-import { Admonition } from '@site/src/components/GitBook';
 
 # 图标变量
 ```text
@@ -12,9 +9,8 @@ import { Admonition } from '@site/src/components/GitBook';
 
 # 函数变量
 
-<Admonition type="info">
-函数变量内部 `{}` 若需要使用 `}` 右花括号，请转义使用 `\}`
-</Admonition>
+:::info 函数变量内部 `{}` 若需要使用 `}` 右花括号，请转义使用 `\}` 
+:::
 
 ## 菜单参数 函数
 
@@ -28,7 +24,7 @@ import { Admonition } from '@site/src/components/GitBook';
 {ke: <Expression>}
 ```
 
-## JavaScript 函数
+## JavaScriot 函数
 
 ```text
 {js: <Expression>}

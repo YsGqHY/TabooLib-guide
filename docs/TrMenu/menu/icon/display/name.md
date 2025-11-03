@@ -1,11 +1,8 @@
 ---
-title: 名称
-sidebar_position: 2
+description: 物品显示的名称，支持动态
 ---
 
 # 名称
-
-物品显示的名称，支持动态
 
 ## 示例
 

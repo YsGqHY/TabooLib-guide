@@ -1,0 +1,22 @@
+{
+  "name": "docusaurus-plugin-git-docs-sync",
+  "version": "1.0.0",
+  "description": "Docusaurus plugin to sync documentation from external Git repositories",
+  "main": "index.js",
+  "keywords": [
+    "docusaurus",
+    "plugin",
+    "git",
+    "documentation",
+    "sync"
+  ],
+  "peerDependencies": {
+    "@docusaurus/core": "^3.0.0"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "simple-git": "^3.27.0",
+    "js-yaml": "^4.1.0"
+  }
+}
+

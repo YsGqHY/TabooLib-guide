@@ -1,11 +1,8 @@
 ---
-title: MONGODB
-sidebar_position: 2
+description: MongoDB 数据库
 ---
 
 # MONGODB
-
-MongoDB 数据库
 
 ## 配置
 

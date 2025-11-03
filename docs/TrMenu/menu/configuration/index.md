@@ -1,6 +1,6 @@
 ---
-title: 配置
-sidebar_position: 2
+dir:
+  link: true
 ---
 
 # 配置

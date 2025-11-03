@@ -1,3 +1,7 @@
+---
+title: example
+---
+
 # Example
 
 > 以下代码依照 TabooLib 插件方式演示

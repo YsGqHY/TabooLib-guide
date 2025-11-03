@@ -1,8 +1,3 @@
----
-title: PlaceholderAPI
-sidebar_position: 9
----
-
 # PlaceholderAPI
 
 ## 使用

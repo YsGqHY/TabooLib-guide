@@ -1,8 +1,3 @@
----
-title: 配置
-sidebar_position: 2
----
-
 # 配置
 
 ## 语言文件

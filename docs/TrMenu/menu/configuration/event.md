@@ -1,7 +1,5 @@
 ---
 description: 对菜单的一些事件执行条件动作反应
-title: 事件
-sidebar_position: 5
 ---
 
 # 事件

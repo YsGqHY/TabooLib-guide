@@ -1,47 +1,36 @@
 ---
-title: 配置
-sidebar_position: 4
+description: 初次安装本插件后，会在插件目录下产生一些文件
 ---
 
-import { Tabs, Tab } from '@site/src/components/GitBook';
-import { CodeBlock } from '@site/src/components/GitBook';
-
 # 配置
-初次安装本插件后，会在插件目录下产生一些文件
 
 ## 文件
 
-<Tabs>
-  <Tab title="lang/zh_CN.yml">
-TLocale 语言文件, 你可以编辑本插件几乎所有的消息
-  </Tab>
+::: tabs
 
-  <Tab title="data/globalData.yml">
+@tab lang/zh\_CN.yml
+TLocale 语言文件, 你可以编辑本插件几乎所有的消息
+@tab data/globalData.yml
 全局缓存数据变量存储的地方
 
 服务器开启状态下请勿编辑
-  </Tab>
 
-  <Tab title="data/itemRepository.yml">
+@tab data/itemRepository.yml
 物品仓库数据存储的地方
 
 服务器开启状态下请勿编辑
-  </Tab>
-
-  <Tab title="menus">
+@tab menus
 默认的菜单加载目录
 
 菜单文件（YAML）可放在该目录或其子目录下，将会被插件自动加载
-  </Tab>
-
-  <Tab title="settings.yml">
+@tab settings.yml
 TrMenu 的主配置文件
-  </Tab>
-</Tabs>
+:::
+
+
 
 ## 设置
 
-<CodeBlock title="settings.yml (v3.5.0)">
 ```yaml
 #
 # 插件的选项
@@ -56,79 +45,25 @@ Options:
   # 是否启用并发加载菜单
   # 启用后会导致多级捕获器顺序错乱
   Load-Menu-Concurrent: false
-  Static-Inventory:
-    Java: false
-    Bedrock: false
-  Packet-Inventory:
-    Create-Id: false
-  Bedrock-Open-Delay: 20
-
-  Placeholders:
-    JavaScript-Parse: false
-    Jexl-Parse: false
-
-# 菜单多语言系统
-Language:
-  Default: 'zh_CN'
-  # 将提供的文本解析为玩家语言
-  # 若留空则使用玩家本地化设置
-  Player: ''
-  CodeTransfer:
-    zh_hans_cn: 'zh_CN'
-    zh_hant_cn: 'zh_TW'
-    en_ca: 'en_US'
-    en_au: 'en_US'
-    en_gb: 'en_US'
-    en_nz: 'en_US'
 
 #
 # 插件的玩家数据储存方式
 #
 Database:
-  # 使用旧版数据库储存
-  Use-Legacy-Database: false
-
-  # Local: SQLITE
-  # External: SQL
-  Method: SQLITE
-  Type:
-    SQLite:
-      file-name: data
-    SQL:
-      host: localhost
-      port: 3306
-      user: root
-      password: root
-      database: test
-  Index:
-    # UUID, USERNAME
-    Player: USERNAME
-
-  # 新版数据库模块
-  SQL:
-    # 启用 MYSQL, 否则使用 SQLITE
-    enable: false
-    host: localhost
-    port: 3306
-    user: root
-    password: root
-    database: minecraft
-    prefix: trmenu
-
-  # 进服延迟加载数据
-  Join-Load-Delay: 40
-  # 全局数据跨服同步间隔
-  Global-Data-Sync: 200
+  # 储存方法: LOCAL, MONGODB
+  Method: LOCAL
+  Url:
+    Client: 'mongodb://localhost:3307'
+    Database: trixey
+    Collection: menu
 
 #
 # 菜单加载器
 #
 Loader:
-  # 启用菜单自动重载
-  Listen-Files: true
+  # 自定义加载目录
   Menu-Files:
     - 'plugins/CustomMenusFolder'
-
 
 #
 # 菜单设置
@@ -154,12 +89,10 @@ Menu:
 
 #
 # 动作相关
-# 开启 Kether 宽容解析语句后无需添加 * 号
+# 开启Kether宽容解析语句后无需添加 * 号
 #
 Action:
   Using-Component: true
-  # 启用标题解析 TabooLib Component 文本, 开启后 title 将会被解析为 json 使用
-  Title-Using-Component: true
   # 捕获器
   Inputer:
     # 取消词（正则）
@@ -168,7 +101,6 @@ Action:
       - 'q'
   Kether:
     # 开启Kether语句宽容解析
-    # 自 3.5.0 版本删除该选项，强制开启宽容解析
     Allow-Tolerance-Parser: true
 
 #
@@ -204,14 +136,12 @@ RegisterCommands:
 # JS/JEXL 命名导出
 # 具体注解详见 [SCRIPT-JAVASCRIPT] 章节
 #
-Scripts:
+
+Script:
   Export-Hook-Plugin: true
   Mozilla-Compat: true
-  # 是否启用 GraalJS 作为引擎
-  Enable-GraalJS: false
   Binding-Map:
 ```
-</CodeBlock>
 
 ## 语言
 

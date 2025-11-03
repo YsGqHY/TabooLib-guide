@@ -1,6 +1,5 @@
 ---
-title: 反应 (动作组)
-sidebar_position: 3
+title: reactions
 ---
 
 # 反应 \(动作组\)
