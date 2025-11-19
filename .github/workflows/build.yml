@@ -73,6 +73,7 @@ jobs:
         SSH_KEY_PATH: /tmp/deploy_key
         SSH_PORT: ${{ secrets.SSH_PORT }}
         TARGET_DIR: ${{ secrets.TARGET_DIR }}
+        FAST_MODE: true  # 启用快速模式，跳过哈希计算，直接使用 rsync 增量算法
       run: |
         chmod +x .github/scripts/incremental_deploy.py
         python3 .github/scripts/incremental_deploy.py

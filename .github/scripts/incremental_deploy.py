@@ -73,7 +73,7 @@ def get_remote_files(ssh_host: str, ssh_user: str, ssh_key: str, ssh_port: str, 
 
     try:
         print("⏳ 正在计算服务器文件哈希值（可能需要一些时间）...")
-        result = subprocess.run(ssh_cmd, capture_output=True, text=True, timeout=3000)
+        result = subprocess.run(ssh_cmd, capture_output=True, text=True, timeout=30000)
 
         if result.returncode == 0:
             output = result.stdout.strip()
@@ -92,7 +92,7 @@ def get_remote_files(ssh_host: str, ssh_user: str, ssh_key: str, ssh_port: str, 
             print(f"⚠️  获取文件列表失败，将上传所有文件")
 
     except subprocess.TimeoutExpired:
-        print("⚠️  获取服务器文件列表超时（超过5分钟），将上传所有文件")
+        print("⚠️  获取服务器文件列表超时（超过500分钟），将上传所有文件")
     except Exception as e:
         print(f"⚠️  获取服务器文件列表失败: {e}，将上传所有文件")
 
@@ -129,14 +129,18 @@ def upload_files(files: Set[str], build_dir: str, ssh_host: str, ssh_user: str,
         for file_path in sorted(files):
             f.write(f"{file_path}\n")
 
-    # 使用 rsync 从文件列表上传
+    # 使用 rsync 从文件列表上传，优化传输速度
     rsync_cmd = [
         "rsync",
         "-avz",
         "--files-from=" + temp_file_list,
-        "-e", f"ssh -i {ssh_key} -p {ssh_port} -o StrictHostKeyChecking=no",
+        "-e", f"ssh -i {ssh_key} -p {ssh_port} -o StrictHostKeyChecking=no -o Compression=no -o TCPKeepAlive=yes",
         "--progress",
         "--stats",
+        "--compress-level=6",  # 降低压缩级别，加快速度
+        "--partial",  # 支持断点续传
+        "--inplace",  # 直接写入，不创建临时文件
+        "--no-whole-file",  # 使用增量传输
         build_dir + "/",
         f"{ssh_user}@{ssh_host}:{remote_dir}/"
     ]
@@ -144,7 +148,7 @@ def upload_files(files: Set[str], build_dir: str, ssh_host: str, ssh_user: str,
     try:
         print(f"🚀 执行上传命令...")
         # 增加超时到 30 分钟
-        result = subprocess.run(rsync_cmd, timeout=1800)
+        result = subprocess.run(rsync_cmd, timeout=180000)
 
         if result.returncode == 0:
             print(f"✅ 成功上传 {len(files)} 个文件")
@@ -154,7 +158,7 @@ def upload_files(files: Set[str], build_dir: str, ssh_host: str, ssh_user: str,
             return False
 
     except subprocess.TimeoutExpired:
-        print("❌ 上传超时（超过30分钟）")
+        print("❌ 上传超时（超过3000分钟）")
         return False
     except Exception as e:
         print(f"❌ 上传过程出错: {e}")
@@ -198,6 +202,43 @@ def delete_files(files: Set[str], ssh_host: str, ssh_user: str,
         print(f"⚠️  删除过程出错: {e}")
         return False
 
+def fast_rsync_upload(build_dir: str, ssh_host: str, ssh_user: str,
+                      ssh_key: str, ssh_port: str, remote_dir: str) -> bool:
+    """使用 rsync 的原生增量算法快速上传（跳过哈希计算）"""
+    print(f"\n🚀 使用快速模式部署（rsync 原生增量算法）...")
+
+    rsync_cmd = [
+        "rsync",
+        "-avz",
+        "-e", f"ssh -i {ssh_key} -p {ssh_port} -o StrictHostKeyChecking=no -o Compression=no -o TCPKeepAlive=yes",
+        "--progress",
+        "--stats",
+        "--compress-level=6",
+        "--partial",
+        "--inplace",
+        "--delete",  # 删除服务器上多余的文件
+        build_dir + "/",
+        f"{ssh_user}@{ssh_host}:{remote_dir}/"
+    ]
+
+    try:
+        print(f"🚀 执行 rsync 同步...")
+        result = subprocess.run(rsync_cmd, timeout=180000)
+
+        if result.returncode == 0:
+            print(f"✅ 同步成功")
+            return True
+        else:
+            print(f"❌ 同步失败，退出码: {result.returncode}")
+            return False
+
+    except subprocess.TimeoutExpired:
+        print("❌ 同步超时")
+        return False
+    except Exception as e:
+        print(f"❌ 同步过程出错: {e}")
+        return False
+
 def main():
     """主函数"""
     print("=" * 60)
@@ -211,6 +252,7 @@ def main():
     ssh_key = os.getenv("SSH_KEY_PATH", "/tmp/deploy_key")
     ssh_port = os.getenv("SSH_PORT", "22")
     remote_dir = os.getenv("TARGET_DIR")
+    fast_mode = os.getenv("FAST_MODE", "false").lower() == "true"
 
     # 验证必需参数
     if not all([ssh_host, ssh_user, remote_dir]):
@@ -221,43 +263,50 @@ def main():
     print(f"  本地目录: {build_dir}")
     print(f"  服务器: {ssh_user}@{ssh_host}:{ssh_port}")
     print(f"  目标目录: {remote_dir}")
+    print(f"  快速模式: {'是' if fast_mode else '否'}")
     print()
 
-    # 获取文件列表
-    local_files = get_local_files(build_dir)
-    remote_files = get_remote_files(ssh_host, ssh_user, ssh_key, ssh_port, remote_dir)
+    # 快速模式：直接使用 rsync 增量算法
+    if fast_mode:
+        if not fast_rsync_upload(build_dir, ssh_host, ssh_user, ssh_key, ssh_port, remote_dir):
+            print("\n❌ 部署失败")
+            sys.exit(1)
+    else:
+        # 标准模式：先计算哈希，再上传变更
+        local_files = get_local_files(build_dir)
+        remote_files = get_remote_files(ssh_host, ssh_user, ssh_key, ssh_port, remote_dir)
 
-    # 计算变更
-    files_to_upload, files_to_delete = calculate_changes(local_files, remote_files)
+        # 计算变更
+        files_to_upload, files_to_delete = calculate_changes(local_files, remote_files)
 
-    print(f"\n📊 变更统计:")
-    print(f"  需要上传: {len(files_to_upload)} 个文件")
-    print(f"  需要删除: {len(files_to_delete)} 个文件")
-    print(f"  保持不变: {len(local_files) - len(files_to_upload)} 个文件")
+        print(f"\n📊 变更统计:")
+        print(f"  需要上传: {len(files_to_upload)} 个文件")
+        print(f"  需要删除: {len(files_to_delete)} 个文件")
+        print(f"  保持不变: {len(local_files) - len(files_to_upload)} 个文件")
 
-    # 显示变更详情
-    if files_to_upload:
-        print(f"\n📤 需要上传的文件:")
-        for file_path in sorted(list(files_to_upload)[:10]):  # 只显示前10个
-            print(f"  + {file_path}")
-        if len(files_to_upload) > 10:
-            print(f"  ... 还有 {len(files_to_upload) - 10} 个文件")
+        # 显示变更详情
+        if files_to_upload:
+            print(f"\n📤 需要上传的文件:")
+            for file_path in sorted(list(files_to_upload)[:10]):  # 只显示前10个
+                print(f"  + {file_path}")
+            if len(files_to_upload) > 10:
+                print(f"  ... 还有 {len(files_to_upload) - 10} 个文件")
 
-    if files_to_delete:
-        print(f"\n🗑️  需要删除的文件:")
-        for file_path in sorted(list(files_to_delete)[:10]):  # 只显示前10个
-            print(f"  - {file_path}")
-        if len(files_to_delete) > 10:
-            print(f"  ... 还有 {len(files_to_delete) - 10} 个文件")
+        if files_to_delete:
+            print(f"\n🗑️  需要删除的文件:")
+            for file_path in sorted(list(files_to_delete)[:10]):  # 只显示前10个
+                print(f"  - {file_path}")
+            if len(files_to_delete) > 10:
+                print(f"  ... 还有 {len(files_to_delete) - 10} 个文件")
 
-    # 执行上传
-    if not upload_files(files_to_upload, build_dir, ssh_host, ssh_user, ssh_key, ssh_port, remote_dir):
-        print("\n❌ 部署失败")
-        sys.exit(1)
+        # 执行上传
+        if not upload_files(files_to_upload, build_dir, ssh_host, ssh_user, ssh_key, ssh_port, remote_dir):
+            print("\n❌ 部署失败")
+            sys.exit(1)
 
-    # 执行删除
-    if not delete_files(files_to_delete, ssh_host, ssh_user, ssh_key, ssh_port, remote_dir):
-        print("\n⚠️  删除文件时出现问题，但部署继续")
+        # 执行删除
+        if not delete_files(files_to_delete, ssh_host, ssh_user, ssh_key, ssh_port, remote_dir):
+            print("\n⚠️  删除文件时出现问题，但部署继续")
 
     print("\n" + "=" * 60)
     print("✅ 增量部署完成！")
