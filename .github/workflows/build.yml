@@ -36,20 +36,50 @@ jobs:
       env:
         NODE_OPTIONS: --max-old-space-size=4096
 
-    - name: Deploy to Linux Server
+    # 测试 SSH 连接
+    - name: Test SSH Connection
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      uses: easingthemes/ssh-deploy@v4
+      uses: appleboy/ssh-action@v1.0.3
       with:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        REMOTE_HOST: ${{ secrets.SSH_HOST }}
-        REMOTE_USER: ${{ secrets.SSH_USER }}
-        REMOTE_PORT: ${{ secrets.SSH_PORT }}
-        SOURCE: "build/"
-        TARGET: "/www/taboolib/"
-        ARGS: "-avz --delete"
-        SCRIPT_BEFORE: |
-          whoami
-          ls -la /www/
-        SCRIPT_AFTER: |
-          echo "部署完成！"
-          ls -la /www/taboolib/
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        passphrase: ${{ secrets.SSH_PASSPHRASE }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          echo "✅ SSH 连接成功！"
+          echo "服务器主机名: $(hostname)"
+          echo "当前用户: $(whoami)"
+          echo "服务器时间: $(date)"
+          echo "目标目录检查:"
+          ls -la ${{ secrets.TARGET_DIR }} || echo "目标目录不存在，将在部署时创建"
+
+    # 上传构建文件到服务器
+    - name: Upload build files to server
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        passphrase: ${{ secrets.SSH_PASSPHRASE }}
+        port: ${{ secrets.SSH_PORT }}
+        source: "build/*"
+        target: ${{ secrets.TARGET_DIR }}
+        strip_components: 1
+        rm: true
+
+    # 验证部署结果
+    - name: Verify deployment
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        passphrase: ${{ secrets.SSH_PASSPHRASE }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          echo "验证部署结果..."
+          ls -lah ${{ secrets.TARGET_DIR }}
+          echo "✅ 部署完成！"
