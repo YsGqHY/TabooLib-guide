@@ -165,7 +165,7 @@ const config = {
                         position: 'left',
                     },
                     {
-                        href: 'https://github.com/8aka-Team/TabooLib-guide',
+                        href: 'https://github.com/YsGqHY/TabooLib-guide',
                         label: 'GitHub',
                         position: 'right',
                     },
@@ -184,7 +184,7 @@ const config = {
                             },
                             {
                                 label: 'GitHub',
-                                href: 'https://github.com/8aka-Team/TabooLib-guide',
+                                href: 'https://github.com/YsGqHY/TabooLib-guide',
                             },
                         ],
                     },

@@ -35,11 +35,21 @@ jobs:
     - run: pnpm build
       env:
         NODE_OPTIONS: --max-old-space-size=4096
-        
-    - name: Deploy to GitHub Pages
+
+    - name: Deploy to Linux Server
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      uses: peaceiris/actions-gh-pages@v4
+      uses: easingthemes/ssh-deploy@v5
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
-        cname: taboo.8aka.org
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        REMOTE_HOST: ${{ secrets.SSH_HOST }}
+        REMOTE_USER: ${{ secrets.SSH_USER }}
+        REMOTE_PORT: ${{ secrets.SSH_PORT }}
+        SOURCE: "build/"
+        TARGET: "/www/taboolib/"
+        ARGS: "-avz --delete"
+        SCRIPT_BEFORE: |
+          whoami
+          ls -la /www/
+        SCRIPT_AFTER: |
+          echo "部署完成！"
+          ls -la /www/taboolib/

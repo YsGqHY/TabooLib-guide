@@ -23,7 +23,7 @@ Kether 是 TabooLib 框架中内置的脚本语言，由 [海螺先生](https://
 - [加入 QQ 群 (611076407)搬运者的群](https://8aka.org/qq)
 - [![](https://img.shields.io/discord/1342805340839870514.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.com/invite/jN4Br8uhSS)
 
-欢迎前往 [GitHub](https://github.com/8aka-Team/TabooLib-guide) 提交 issue 或 pr，帮助我们改进文档。
+欢迎前往 [GitHub](https://github.com/YsGqHY/TabooLib-guide) 提交 issue 或 pr，帮助我们改进文档。
 
 ## 私募语雀
 

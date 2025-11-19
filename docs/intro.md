@@ -12,4 +12,4 @@ sidebar_position: 1
 - [加入 QQ 群 (611076407)](https://8aka.org/qq)
 - [加入 Discord](https://discord.gg/dAmsfCs3)
 
-欢迎前往 [GitHub](https://github.com/8aka-Team/TabooLib-guide) 提交 issue 或 pr。
+欢迎前往 [GitHub](https://github.com/YsGqHY/TabooLib-guide) 提交 issue 或 pr。

@@ -5,8 +5,8 @@
   <p>致力于为 TabooLib 用户提供易懂的指南</p>
 
   [![Built with Docusaurus](https://img.shields.io/badge/Built%20with-Docusaurus-blue)](https://docusaurus.io/)
-  [![Last Commit](https://img.shields.io/github/last-commit/8aka-team/TabooLib-guide)](https://github.com/8aka-team/TabooLib-guide/commits)
-  [![Stars](https://img.shields.io/github/stars/8aka-team/TabooLib-guide?style=social)](https://github.com/8aka-team/TabooLib-guide/stargazers)
+  [![Last Commit](https://img.shields.io/github/last-commit/YsGqHY/TabooLib-guide)](https://github.com/YsGqHY/TabooLib-guide/commits)
+  [![Stars](https://img.shields.io/github/stars/YsGqHY/TabooLib-guide?style=social)](https://github.com/YsGqHY/TabooLib-guide/stargazers)
 
   <br/>
 
@@ -23,7 +23,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/8aka-team/TabooLib-guide.git
+git clone https://github.com/YsGqHY/TabooLib-guide.git
 cd TabooLib-guide
 
 # 安装依赖
@@ -47,7 +47,7 @@ npm start
 
 | QQ群 | Discord | 问题反馈 |
 |:----:|:-------:|:--------:|
-| [874877925](https://8aka.org/qq) | [加入频道](https://discord.gg/dAmsfCs3) | [GitHub Issues](https://github.com/8aka-team/TabooLib-guide/issues) |
+| [874877925](https://8aka.org/qq) | [加入频道](https://discord.gg/dAmsfCs3) | [GitHub Issues](https://github.com/YsGqHY/TabooLib-guide/issues) |
 
 </div>
 
@@ -57,7 +57,7 @@ npm start
 
 ```bash
 # 克隆仓库
-git clone https://github.com/8aka-team/TabooLib-guide.git
+git clone https://github.com/YsGqHY/TabooLib-guide.git
 cd TabooLib-guide
 
 # 进行修改后直接提交
