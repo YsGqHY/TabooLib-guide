@@ -46,6 +46,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         port: ${{ secrets.SSH_PORT }}
+        debug: true
         script: |
           echo "✅ SSH 连接成功！"
           echo "服务器主机名: $(hostname)"
