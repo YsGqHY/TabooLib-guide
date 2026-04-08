@@ -57,7 +57,6 @@ module.exports = {
       docsPath: 'docs',
       targetPath: 'official',
       format: 'docusaurus',
-      localFallback: process.env.CI ? null : 'E:/Desktop/pythonProject/TabooDocs/docs',
       required: false,
     },
   ],
