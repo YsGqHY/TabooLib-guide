@@ -51,6 +51,15 @@ module.exports = {
       targetPath: 'TrChat',
       format: 'auto',
     },
+    {
+      url: 'https://github.com/TabooLib/docs',
+      branch: 'main',
+      docsPath: 'docs',
+      targetPath: 'official',
+      format: 'docusaurus',
+      localFallback: 'E:/Desktop/pythonProject/TabooDocs/docs',
+      required: false,
+    },
   ],
 
   docsDir: 'docs',

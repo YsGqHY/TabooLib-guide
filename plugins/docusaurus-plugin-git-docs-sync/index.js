@@ -50,25 +50,45 @@ async function syncRepository(repo, cacheRoot, docsRoot, cleanTarget, logger) {
     docsPath = '.',
     targetPath,
     format = 'auto',
+    localFallback,
   } = repo;
 
   const repoName = url.split('/').pop().replace('.git', '');
   const repoCache = path.join(cacheRoot, repoName);
   const git = simpleGit();
 
+  let sourcePath;
+  let remoteSuccess = false;
+
   logger.info(`[GitDocsSync] 📦 同步: ${url}`);
 
-  if (await fs.pathExists(repoCache)) {
-    logger.info(`[GitDocsSync] 🔄 更新仓库: ${repoName}`);
-    await simpleGit(repoCache).pull('origin', branch);
-  } else {
-    logger.info(`[GitDocsSync] 📥 克隆仓库: ${repoName}`);
-    await git.clone(url, repoCache, ['--depth', '1', '--branch', branch]);
+  try {
+    if (await fs.pathExists(repoCache)) {
+      logger.info(`[GitDocsSync] 🔄 更新仓库: ${repoName}`);
+      await simpleGit(repoCache).pull('origin', branch);
+    } else {
+      logger.info(`[GitDocsSync] 📥 克隆仓库: ${repoName}`);
+      await git.clone(url, repoCache, ['--depth', '1', '--branch', branch]);
+    }
+
+    sourcePath = path.join(repoCache, docsPath);
+    if (await fs.pathExists(sourcePath)) {
+      remoteSuccess = true;
+    }
+  } catch (err) {
+    logger.warn(`[GitDocsSync] ⚠️ 远程同步失败: ${url} - ${err.message}`);
   }
 
-  const sourcePath = path.join(repoCache, docsPath);
-  if (!await fs.pathExists(sourcePath)) {
-    throw new Error(`文档路径不存在: ${sourcePath}`);
+  if (!remoteSuccess && localFallback) {
+    logger.info(`[GitDocsSync] 📂 尝试本地回退: ${localFallback}`);
+    if (await fs.pathExists(localFallback)) {
+      sourcePath = localFallback;
+      logger.info(`[GitDocsSync] ✅ 使用本地回退路径: ${localFallback}`);
+    } else {
+      throw new Error(`远程同步失败且本地回退路径不存在: ${localFallback}`);
+    }
+  } else if (!remoteSuccess) {
+    throw new Error(`远程同步失败且未配置本地回退: ${url}`);
   }
 
   const detectedFormat = format === 'auto' 
@@ -89,7 +109,7 @@ async function syncRepository(repo, cacheRoot, docsRoot, cleanTarget, logger) {
   if (detectedFormat === 'gitbook') {
     await convertGitBookToDocs(sourcePath, target, logger);
   } else {
-    await syncDocusaurusDocs(sourcePath, target, logger);
+    await syncDocusaurusDocs(sourcePath, target, targetPath || repoName, logger);
   }
 
   logger.info(`[GitDocsSync] ✅ 完成: ${targetPath || repoName}`);
@@ -106,7 +126,7 @@ async function detectDocsFormat(dirPath) {
   return 'docusaurus';
 }
 
-async function syncDocusaurusDocs(source, target, logger) {
+async function syncDocusaurusDocs(source, target, targetPath, logger) {
   await fs.copy(source, target, {
     overwrite: true,
     filter: (src) => {
@@ -120,7 +140,9 @@ async function syncDocusaurusDocs(source, target, logger) {
   });
   
   await fixDocusaurusLinks(target);
+  await fixFrontmatterSlugs(target, targetPath, logger);
   await convertReadmeToIndex(target);
+  await ensureCategoryConfig(target, targetPath, logger);
   
   logger.info(`[GitDocsSync] 已同步 Docusaurus 文档: ${target}`);
 }
@@ -387,3 +409,55 @@ async function fixDocusaurusLinks(dir) {
   }
 }
 
+async function fixFrontmatterSlugs(dir, targetPath, logger) {
+  const items = await fs.readdir(dir, { withFileTypes: true });
+  
+  for (const item of items) {
+    const fullPath = path.join(dir, item.name);
+    
+    if (item.isDirectory()) {
+      await fixFrontmatterSlugs(fullPath, targetPath, logger);
+    } else if (item.name.endsWith('.md') || item.name.endsWith('.mdx')) {
+      try {
+        let content = await fs.readFile(fullPath, 'utf-8');
+        const fmMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+        if (!fmMatch) continue;
+
+        const frontmatter = fmMatch[1];
+        const slugMatch = frontmatter.match(/^slug:\s*(.+)$/m);
+        if (!slugMatch) continue;
+
+        const originalSlug = slugMatch[1].trim();
+        // 只处理绝对路径 slug（以 / 开头），且还没有 targetPath 前缀的
+        if (originalSlug.startsWith('/') && !originalSlug.startsWith(`/${targetPath}`)) {
+          const newSlug = originalSlug === '/'
+            ? `/${targetPath}`
+            : `/${targetPath}${originalSlug}`;
+          content = content.replace(
+            `slug: ${originalSlug}`,
+            `slug: ${newSlug}`
+          );
+          await fs.writeFile(fullPath, content, 'utf-8');
+          logger.info(`[GitDocsSync] 🔧 修正 slug: ${originalSlug} → ${newSlug} (${item.name})`);
+        }
+      } catch (error) {
+        console.warn(`[GitDocsSync] slug 修正失败: ${fullPath}`, error.message);
+      }
+    }
+  }
+}
+
+async function ensureCategoryConfig(dir, label, logger) {
+  const configPath = path.join(dir, '_category_.json');
+  if (!await fs.pathExists(configPath)) {
+    const config = {
+      label: label,
+      link: {
+        type: 'generated-index',
+        title: `${label} 文档`,
+      },
+    };
+    await fs.writeJson(configPath, config, { spaces: 2 });
+    logger.info(`[GitDocsSync] 📁 创建分类配置: ${configPath}`);
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import { IoArrowForward, IoBookOutline, IoTerminalOutline, IoGridOutline } from 'react-icons/io5';
+import { IoArrowForward, IoBookOutline, IoTerminalOutline, IoGridOutline, IoDocumentTextOutline } from 'react-icons/io5';
 import LanguageRedirect from '../components/LanguageRedirect';
 
 function HomepageHeader() {
@@ -26,6 +26,10 @@ function HomepageHeader() {
             <Link to="https://tabooproject.org/" className={styles.quickItem}>
               <IoBookOutline />
               官方文档
+            </Link>
+            <Link to="/official" className={styles.quickItem}>
+              <IoDocumentTextOutline />
+              官方文档镜像
             </Link>
             <Link to="/kether-list" className={styles.quickItem}>
               <IoTerminalOutline />
