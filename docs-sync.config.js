@@ -53,11 +53,11 @@ module.exports = {
     },
     {
       url: 'https://github.com/TabooLib/docs',
-      branch: 'main',
+      branch: 'master',
       docsPath: 'docs',
       targetPath: 'official',
       format: 'docusaurus',
-      localFallback: 'E:/Desktop/pythonProject/TabooDocs/docs',
+      localFallback: process.env.CI ? null : 'E:/Desktop/pythonProject/TabooDocs/docs',
       required: false,
     },
   ],
